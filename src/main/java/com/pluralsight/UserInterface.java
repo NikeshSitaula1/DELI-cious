@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import com.pluralsight.util.Console;
+
 public class UserInterface {
 
     // HOME SCREEN
