@@ -1,5 +1,9 @@
 package com.pluralsight.checkout;
 
-public class Items {
+public abstract class Items {
+
+    public abstract double totalPrice();
+
+
 
 }

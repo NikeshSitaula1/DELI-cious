@@ -1,6 +1,11 @@
 package com.pluralsight.items;
 
-public class Chips {
+import com.pluralsight.checkout.Items;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Chips extends Items {
 
     private String chipType;
 
@@ -14,5 +19,10 @@ public class Chips {
 
     public void setChipType(String chipType) {
         this.chipType = chipType;
+    }
+
+    @Override
+    public double totalPrice() {
+        return 0;
     }
 }

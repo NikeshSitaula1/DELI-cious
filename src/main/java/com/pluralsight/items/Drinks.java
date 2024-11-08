@@ -1,6 +1,8 @@
 package com.pluralsight.items;
 
-public class Drinks {
+import com.pluralsight.checkout.Items;
+
+public class Drinks extends Items {
 
     private String drinkSize;
     private String drinkFlavor;
@@ -24,5 +26,11 @@ public class Drinks {
 
     public void setDrinkFlavor(String drinkFlavor) {
         this.drinkFlavor = drinkFlavor;
+    }
+
+
+    @Override
+    public double totalPrice() {
+        return 0;
     }
 }
