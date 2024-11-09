@@ -12,13 +12,21 @@ public class Sandwich extends Items {
     private String sandwichBread;
     private List<Toppings> toppingsList =  new ArrayList<Toppings>();
 
+    // ALL CONSTRUCTORS
     public Sandwich(String sandwichSize, String sandwichBread) {
         this.sandwichSize = sandwichSize;
         this.sandwichBread = sandwichBread;
     }
 
+    public Sandwich(String sandwichSize) {
+        this.sandwichSize = sandwichSize;
+    }
+
+
     public Sandwich(){}
 
+
+    // ALL GETTERS AND SETTERS
     public String getSandwichSize() {
         return sandwichSize;
     }
