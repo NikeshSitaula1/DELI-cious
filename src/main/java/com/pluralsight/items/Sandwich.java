@@ -18,6 +18,12 @@ public class Sandwich extends Items {
         this.sandwichBread = sandwichBread;
     }
 
+    public Sandwich(String sandwichSize, String sandwichBread, List<Toppings> toppingsList) {
+        this.sandwichSize = sandwichSize;
+        this.sandwichBread = sandwichBread;
+        this.toppingsList = toppingsList;
+    }
+
     public Sandwich(String sandwichSize) {
         this.sandwichSize = sandwichSize;
     }
@@ -40,6 +46,10 @@ public class Sandwich extends Items {
 
     public void setSandwichBread(String sandwichBread) {
         this.sandwichBread = sandwichBread;
+    }
+
+    public List<Toppings> getToppingsList() {
+        return toppingsList;
     }
 
     public void addTopping(Toppings toppings){
@@ -68,5 +78,15 @@ public class Sandwich extends Items {
         }
 
         return sandwichPrice + toppingsCost;
+    }
+
+    @Override
+    public String toString() {
+        return "Sandwich{" +
+                "sandwichSize='" + sandwichSize + '\'' +
+                ", sandwichBread='" + sandwichBread + '\'' +
+                ", Toppings='" + toppingsList + '\'' +
+                ", price= " + calculatePrice() +
+                '}' + "\n";
     }
 }

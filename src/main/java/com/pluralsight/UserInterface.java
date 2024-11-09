@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import com.pluralsight.Sandwich.Toppings;
+import com.pluralsight.items.Sandwich;
 import com.pluralsight.util.Console;
 
 public class UserInterface {
@@ -54,6 +56,7 @@ public class UserInterface {
                     case 1 -> processAddSandwich();
                     case 2 -> processAddDrinks();
                     case 3 -> processAddChips();
+                    case 5 -> displaySandwich();
                     case 4 -> processCheckout();
                     case 0 -> {
                         return;
@@ -98,6 +101,22 @@ public class UserInterface {
 
     //CHECKOUT
     public void processCheckout(){
+
+    }
+
+
+    // TESTING
+    public void displaySandwich(){
+        Sandwich sandwich = new Sandwich("8", "Mac&Cheese");
+
+        sandwich.addTopping(new Toppings("Ham","meat", true, true));
+        sandwich.addTopping(new Toppings("Salami","meat", true, false));
+        sandwich.addTopping(new Toppings("Cheddar","cheese", true, false));
+        sandwich.addTopping(new Toppings("Lettuce","Regular", false, false));
+        System.out.println(sandwich + "\n");
+
+        // 7 + 2 + 1 + 2 + 1.50
+
 
     }
 

@@ -119,4 +119,12 @@ public class Toppings {
             default -> 0;
         };
     }
+
+    @Override
+    public String toString() {
+        return "Toppings{" +
+                "toppingName='" + toppingName + '\'' +
+                ", toppingType='" + toppingType + '\'' +
+                '}' + "\n";
+    }
 }
