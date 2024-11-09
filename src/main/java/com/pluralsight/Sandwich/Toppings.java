@@ -13,6 +13,8 @@ public class Toppings {
     //LIST OF FIXED VALUES
     private final List<String> meatOptions = Arrays.asList("Steak","Ham","Salami","Roast beef","Chicken","Bacon");
     private final List<String> cheeseOptions = Arrays.asList("American", "Provolone","Cheddar","Swiss");
+    private final List<String> regularOptions = Arrays.asList("Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapenos", "Cucumbers", "Pickles", "Guacamole", "Mushrooms");
+    private final List<String> sauceOptions = Arrays.asList("Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Islands", "Vinaigrette");
     private final double costMeatSize4 = 1.00;
     private final double costMeatSize8 = 2.00;
     private final double costMeatSize12 = 3.00;
@@ -74,6 +76,14 @@ public class Toppings {
 
     public boolean validCheeseOption(String toppingName){
         return cheeseOptions.contains(toppingName.toLowerCase().trim());
+    }
+
+    public boolean validRegularOption(String toppingName){
+        return regularOptions.contains(toppingName.toLowerCase().trim());
+    }
+
+    public boolean validSauceOptions(String toppingName){
+        return sauceOptions.contains(toppingName.toLowerCase().trim());
     }
 
 
