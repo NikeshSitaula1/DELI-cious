@@ -2,7 +2,8 @@ package com.pluralsight.checkout;
 
 public abstract class Items {
 
-    public abstract double totalPrice();
+
+    public abstract double calculatePrice();
 
 
 

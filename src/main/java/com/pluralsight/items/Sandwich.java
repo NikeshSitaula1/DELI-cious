@@ -6,10 +6,8 @@ public class Sandwich extends Items {
 
 
 
-
-
     @Override
-    public double totalPrice() {
+    public double calculatePrice() {
         return 0;
     }
 }

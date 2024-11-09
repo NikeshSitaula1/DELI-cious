@@ -30,7 +30,23 @@ public class Drinks extends Items {
 
 
     @Override
-    public double totalPrice() {
+    public double calculatePrice() {
+        double drinksSmall = 2.0;
+        double drinksMedium = 2.50;
+        double drinksLarge = 3.0;
+
+        if (drinkSize.equalsIgnoreCase("Small")) {
+            return drinksSmall;
+        }
+        else if(drinkSize.equalsIgnoreCase("Medium")) {
+            return drinksMedium;
+        }
+        else if (drinkSize.equalsIgnoreCase("Large")) {
+            return drinksLarge;
+        }
+        else {
+            System.out.println("Please choose between Small, Medium or Large. ");
+        }
         return 0;
     }
 }
