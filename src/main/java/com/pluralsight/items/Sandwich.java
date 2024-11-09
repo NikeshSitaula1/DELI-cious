@@ -42,6 +42,10 @@ public class Sandwich extends Items {
         this.sandwichBread = sandwichBread;
     }
 
+    public void addTopping(Toppings toppings){
+        toppingsList.add(toppings);
+    }
+
 
     @Override
     public double calculatePrice() {
