@@ -22,7 +22,6 @@ public class Sandwich extends Items {
         this.sandwichSize = sandwichSize;
     }
 
-
     public Sandwich(){}
 
 
@@ -43,18 +42,27 @@ public class Sandwich extends Items {
         this.sandwichBread = sandwichBread;
     }
 
-    public List<Toppings> getToppingsList() {
-        return toppingsList;
-    }
-
-    public void setToppingsList(List<Toppings> toppingsList) {
-        this.toppingsList = toppingsList;
-    }
-
-
 
     @Override
     public double calculatePrice() {
-        return 0;
+        double sandwichPrice = 0;
+        double toppingsCost = 0;
+
+        if (sandwichSize.equals("4")){
+            sandwichPrice = 5.50;
+        }
+        else if (sandwichSize.equals("8")) {
+            sandwichPrice = 7.00;
+        }
+        else if (sandwichSize.equals("12")) {
+            sandwichPrice = 8.50;
+        }
+
+
+        for (Toppings toppings : toppingsList){
+            toppingsCost += toppings.calculateToppingCost(sandwichSize);
+        }
+
+        return sandwichPrice + toppingsCost;
     }
 }
