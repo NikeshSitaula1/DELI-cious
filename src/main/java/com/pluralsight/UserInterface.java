@@ -72,15 +72,13 @@ public class UserInterface {
         } while (true);
     }
 
-
+//todo START DOING THIS FIRST, GIVE TOPPING VARIABLE TO ADD TO YOUR TOPPING CONSTRUCTOR
     // ADD SANDWICH
     public void processAddSandwich() {
 
-//        String sandwichBread = Console.PromptForString("Select your bread: ");
-//        String sandwichSize = Console.PromptForString("Sandwich size: ");
-//        String sandwichTopping = Console.PromptForString("Toppings: "); // need more for this
-//
-//        //Topping topping = new Topping
+
+
+
 
         String options = """
                 Please select from the following choices:
@@ -91,6 +89,18 @@ public class UserInterface {
                 0 - Cancel Order
                 
                 >>\s""";
+
+
+        String sandwichBread = Console.PromptForString("Select your bread: ");
+        String sandwichSize = Console.PromptForString("Sandwich size: ");
+        String sandwichTopping = Console.PromptForString("Toppings: ");// need more for this
+
+        String toppingName = Console.PromptForString();
+
+        Toppings toppings = new Toppings ();
+
+
+
 
 
     }
@@ -136,11 +146,7 @@ public class UserInterface {
         sandwich.addTopping(meatTopping);
         sandwich.addTopping(regularTopping);
 
-
-
-
-
-        System.out.println(sandwich + "\n");
+        System.out.println(sandwich);
 
         // 7 + 2 + 1 + 2 + 1.50 = 13.5
 
