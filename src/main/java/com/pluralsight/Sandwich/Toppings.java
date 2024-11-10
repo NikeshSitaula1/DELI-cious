@@ -1,7 +1,6 @@
 package com.pluralsight.Sandwich;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Toppings {
@@ -19,6 +18,7 @@ public class Toppings {
                                                                         "Cucumbers", "Pickles", "Guacamole", "Mushrooms"));
     private final List<String> sauceOptions = new ArrayList<>(List.of("Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Islands", "Vinaigrette"));
 
+
     private final double costMeatSize4= 1.00, costMeatSize8= 2.00, costMeatSize12= 3.00;
     private final double extraCostMeatSize4= 0.50, extraCostMeatSize8= 1.00, extraCostMeatSize12= 1.50;
     private final double costCheeseSize4= 0.75, costCheeseSize8= 1.50, costCheeseSize12= 2.25;
@@ -33,6 +33,9 @@ public class Toppings {
         this.toppingIsPremium = toppingType.equalsIgnoreCase("Meat") || toppingType.equalsIgnoreCase("Cheese");
         this.toppingIsExtra = toppingIsExtra;
     }
+
+    public Toppings(){}
+
 
 
     // GETTERS AND SETTERS
@@ -116,6 +119,9 @@ public class Toppings {
         }
 
     }
+
+    // TODO DO IF FOR EXTRA MEAT, EXTRA CHEESE AND EXTRA MEAT AND CHEESE
+
 
     public double calculateMeatCost(String sandwichSize){
         return switch (sandwichSize) {

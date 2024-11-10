@@ -1,8 +1,11 @@
 package com.pluralsight;
 
 import com.pluralsight.Sandwich.Toppings;
+import com.pluralsight.items.Chips;
 import com.pluralsight.items.Sandwich;
 import com.pluralsight.util.Console;
+
+import java.util.List;
 
 public class UserInterface {
 
@@ -118,12 +121,25 @@ public class UserInterface {
 
     // TESTING
     public void displaySandwich(){
-        Sandwich sandwich = new Sandwich("8", "Mac&Cheese");
 
-        sandwich.addTopping(new Toppings("Ham","meat", true));
-        sandwich.addTopping(new Toppings("Salami","meat", false));
-        sandwich.addTopping(new Toppings("Cheddar","cheese", false));
-        sandwich.addTopping(new Toppings("Lettuce","Regular", false));
+        Toppings cheeseToppings = new Toppings("steak", "meat", true);
+        Toppings meatTopping = new Toppings("Salami","meat", false);
+        Toppings cheeseTopping2 = new Toppings("Cheddar","cheese", false);
+        Toppings regularTopping = new Toppings("Lettuce","Regular", false);
+
+
+
+        Sandwich sandwich = new Sandwich("ham sandwich", 1, "8", "Mac&Cheese", "true");
+
+        sandwich.addTopping(cheeseTopping2);
+        sandwich.addTopping(cheeseToppings);
+        sandwich.addTopping(meatTopping);
+        sandwich.addTopping(regularTopping);
+
+
+
+
+
         System.out.println(sandwich + "\n");
 
         // 7 + 2 + 1 + 2 + 1.50 = 13.5

@@ -7,7 +7,8 @@ public class Drinks extends Items {
     private String drinkSize;
     private String drinkFlavor;
 
-    public Drinks(String drinkSize, String drinkFlavor) {
+    public Drinks(String name, int quantity, String drinkSize, String drinkFlavor) {
+        super(name,quantity);
         this.drinkSize = drinkSize;
         this.drinkFlavor = drinkFlavor;
     }
@@ -36,13 +37,13 @@ public class Drinks extends Items {
         double drinksLarge = 3.0;
 
         if (drinkSize.equalsIgnoreCase("Small")) {
-            return drinksSmall;
+            return drinksSmall * getQuantity();
         }
         else if(drinkSize.equalsIgnoreCase("Medium")) {
-            return drinksMedium;
+            return drinksMedium * getQuantity();
         }
         else if (drinkSize.equalsIgnoreCase("Large")) {
-            return drinksLarge;
+            return drinksLarge * getQuantity();
         }
         else {
             System.out.println("Please choose between Small, Medium or Large. ");

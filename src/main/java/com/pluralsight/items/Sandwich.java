@@ -10,25 +10,33 @@ public class Sandwich extends Items {
 
     private String sandwichSize;
     private String sandwichBread;
+    private String isToasted;
     private List<Toppings> toppingsList =  new ArrayList<Toppings>();
 
+    //FIXED VALUES
+    private final double sandwichSize4= 5.50, sandwichSize8= 7.00, sandwichSize12= 8.50;
+
+
     // ALL CONSTRUCTORS
-    public Sandwich(String sandwichSize, String sandwichBread) {
+    public Sandwich(String name, int quantity, String sandwichSize, String sandwichBread, String isToasted) {
+        super(name, quantity);
         this.sandwichSize = sandwichSize;
         this.sandwichBread = sandwichBread;
+        this.isToasted = isToasted;
     }
 
-    public Sandwich(String sandwichSize, String sandwichBread, List<Toppings> toppingsList) {
+    public Sandwich(String name, int quantity, String sandwichSize, String sandwichBread, String isToasted, List<Toppings> toppingsList) {
+        super(name, quantity);
         this.sandwichSize = sandwichSize;
         this.sandwichBread = sandwichBread;
+        this.isToasted = isToasted;
         this.toppingsList = toppingsList;
     }
 
-    public Sandwich(String sandwichSize) {
+    public Sandwich(String name, int quantity, String sandwichSize) {
+        super(name, quantity);
         this.sandwichSize = sandwichSize;
     }
-
-    public Sandwich(){}
 
 
     // ALL GETTERS AND SETTERS
@@ -48,12 +56,23 @@ public class Sandwich extends Items {
         this.sandwichBread = sandwichBread;
     }
 
+    public String isToasted() {
+        return isToasted;
+    }
+
+    public void setToasted(String toasted) {
+        isToasted = toasted;
+    }
+
     public List<Toppings> getToppingsList() {
         return toppingsList;
     }
 
-    public void addTopping(Toppings toppings){
-        toppingsList.add(toppings);
+
+
+    // ADD TOPPINGS
+    public void addTopping(Toppings topping) {
+        toppingsList.add(topping);  // Add the regular topping
     }
 
 
@@ -63,13 +82,16 @@ public class Sandwich extends Items {
         double toppingsCost = 0;
 
         if (sandwichSize.equals("4")){
-            sandwichPrice = 5.50;
+            sandwichPrice = sandwichSize4;
         }
         else if (sandwichSize.equals("8")) {
-            sandwichPrice = 7.00;
+            sandwichPrice = sandwichSize8;
         }
         else if (sandwichSize.equals("12")) {
-            sandwichPrice = 8.50;
+            sandwichPrice = sandwichSize12;
+        }
+        else{
+            System.out.println("Invalid sandwich size. Please one of the correct size. 4\", 8\", 12\": ");
         }
 
 

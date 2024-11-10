@@ -7,9 +7,11 @@ public class Chips extends Items {
     private String chipsType;
 
 
-    public Chips(String chipType) {
+    public Chips(String name, int quantity, String chipType) {
+        super(name, quantity);
         this.chipsType = chipType;
     }
+
 
     public String getChipType() {
         return chipsType;
@@ -22,22 +24,22 @@ public class Chips extends Items {
     @Override
     public double calculatePrice() {
 
-        double chipsSmall = 1.5;
-        double chipsMedium = 2.0;
-        double chipsLarge = 2.5;
+        double chipsPrice = 1.5;
 
-        if (chipsType.equalsIgnoreCase("Small")) {
-            return chipsSmall;
+        if (chipsType.equalsIgnoreCase(getName())) {
+            return chipsPrice;
+        } else if (chipsType.equalsIgnoreCase("No")) {
+            return 0;
+        } else {
+            System.out.println("Please choose chips or Choose No to exit. ");
         }
-        else if(chipsType.equalsIgnoreCase("Medium")) {
-            return chipsMedium;
-        }
-        else if (chipsType.equalsIgnoreCase("Large")) {
-            return chipsLarge;
-        }
-        else {
-            System.out.println("Please choose between Small, Medium or Large. ");
-        }
-        return 0;
+        return chipsPrice * getQuantity();
+    }
+
+    @Override
+    public String toString() {
+        return "Chips{" +
+                "total price= " + calculatePrice() + '\'' +
+                '}';
     }
 }
