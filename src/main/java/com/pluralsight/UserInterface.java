@@ -56,7 +56,7 @@ public class UserInterface {
                     case 1 -> processAddSandwich();
                     case 2 -> processAddDrinks();
                     case 3 -> processAddChips();
-                    case 5 -> displaySandwich();
+                    case 5 -> displaySandwich(); /// DELETE LATER
                     case 4 -> processCheckout();
                     case 0 -> {
                         return;
@@ -73,11 +73,22 @@ public class UserInterface {
     // ADD SANDWICH
     public void processAddSandwich() {
 
-        String sandwichBread = Console.PromptForString("Select your bread: ");
-        String sandwichSize = Console.PromptForString("Sandwich size: ");
-        String sandwichTopping = Console.PromptForString("Toppings: "); // need more for this
+//        String sandwichBread = Console.PromptForString("Select your bread: ");
+//        String sandwichSize = Console.PromptForString("Sandwich size: ");
+//        String sandwichTopping = Console.PromptForString("Toppings: "); // need more for this
+//
+//        //Topping topping = new Topping
 
-        //Topping topping = new Topping
+        String options = """
+                Please select from the following choices:
+                1 - Select your Bread
+                2 - Sandwich Size
+                3 - Toppings
+                4 - Would you like the sandwich toasted
+                0 - Cancel Order
+                
+                >>\s""";
+
 
     }
 
@@ -109,14 +120,13 @@ public class UserInterface {
     public void displaySandwich(){
         Sandwich sandwich = new Sandwich("8", "Mac&Cheese");
 
-        sandwich.addTopping(new Toppings("Ham","meat", true, true));
-        sandwich.addTopping(new Toppings("Salami","meat", true, false));
-        sandwich.addTopping(new Toppings("Cheddar","cheese", true, false));
-        sandwich.addTopping(new Toppings("Lettuce","Regular", false, false));
+        sandwich.addTopping(new Toppings("Ham","meat", true));
+        sandwich.addTopping(new Toppings("Salami","meat", false));
+        sandwich.addTopping(new Toppings("Cheddar","cheese", false));
+        sandwich.addTopping(new Toppings("Lettuce","Regular", false));
         System.out.println(sandwich + "\n");
 
-        // 7 + 2 + 1 + 2 + 1.50
-
+        // 7 + 2 + 1 + 2 + 1.50 = 13.5
 
     }
 

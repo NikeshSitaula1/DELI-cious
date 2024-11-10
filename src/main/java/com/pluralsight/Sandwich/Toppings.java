@@ -10,34 +10,29 @@ public class Toppings {
     private boolean toppingIsPremium;
     private boolean toppingIsExtra;
 
-    //LIST OF FIXED VALUES
+
+    // FIXED VALUES
     private final List<String> meatOptions = Arrays.asList("Steak","Ham","Salami","Roast beef","Chicken","Bacon");
     private final List<String> cheeseOptions = Arrays.asList("American", "Provolone","Cheddar","Swiss");
     private final List<String> regularOptions = Arrays.asList("Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapenos", "Cucumbers", "Pickles", "Guacamole", "Mushrooms");
     private final List<String> sauceOptions = Arrays.asList("Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Islands", "Vinaigrette");
-    private final double costMeatSize4 = 1.00;
-    private final double costMeatSize8 = 2.00;
-    private final double costMeatSize12 = 3.00;
-    private final double extraCostMeatSize4 = 0.50;
-    private final double extraCostMeatSize8 = 1.00;
-    private final double extraCostMeatSize12 = 1.50;
-    private final double costCheeseSize4 = 0.75;
-    private final double costCheeseSize8 = 1.50;
-    private final double costCheeseSize12 = 2.25;
-    private final double extraCostCheeseSize4 = 0.30;
-    private final double extraCostCheeseSize8 = 0.60;
-    private final double extraCostCheeseSize12 = 0.90;
+    private final double costMeatSize4= 1.00, costMeatSize8= 2.00, costMeatSize12= 3.00;
+    private final double extraCostMeatSize4= 0.50, extraCostMeatSize8= 1.00, extraCostMeatSize12= 1.50;
+    private final double costCheeseSize4= 0.75, costCheeseSize8= 1.50, costCheeseSize12= 2.25;
+    private final double extraCostCheeseSize4= 0.30, extraCostCheeseSize8= 0.60, extraCostCheeseSize12= 0.90;
 
 
 
-    public Toppings(String toppingName, String toppingType, boolean toppingIsPremium, boolean toppingIsExtra) {
+    // CONSTRUCTORS
+    public Toppings(String toppingName, String toppingType, boolean toppingIsExtra) {
         this.toppingName = toppingName;
         this.toppingType = toppingType;
-        this.toppingIsPremium = toppingIsPremium;
+        this.toppingIsPremium = toppingType.equalsIgnoreCase("Meat") || toppingType.equalsIgnoreCase("Cheese");
         this.toppingIsExtra = toppingIsExtra;
     }
 
 
+    // GETTERS AND SETTERS
     public String getToppingName() {
         return toppingName;
     }
@@ -91,28 +86,35 @@ public class Toppings {
         if (toppingType.equalsIgnoreCase("Meat") && !validMeatOption(toppingName)){
             System.out.println("Invalid meat option, Please choose a valid meat option");
         }
-        else if (toppingType.equalsIgnoreCase("Cheese") && !validCheeseOption(toppingName)){
+        if (toppingType.equalsIgnoreCase("Cheese") && !validCheeseOption(toppingName)){
             System.out.println("Invalid cheese option, Please choose a valid cheese option");
+        }
+        if (toppingType.equalsIgnoreCase("Regular") && !validRegularOption(toppingName)){
+            System.out.println("Invalid Regular option, Please choose a valid Regular topping option");
+        }
+        if (toppingType.equalsIgnoreCase("Sauce") && !validSauceOptions(toppingName)){
+            System.out.println("Invalid Sauce option, Please choose a valid sauce option");
         }
     }
 
 
     // MAIN CALCULATION
     public double calculateToppingCost(String sandwichSize) {
-        double toppingCost = 0;
 
-        if (toppingIsPremium){
-            if (toppingType.equalsIgnoreCase("Meat")){
-                toppingCost = calculateMeatCost(sandwichSize,toppingIsExtra);
-            }
-            else if (toppingType.equalsIgnoreCase("Cheese")){
-                toppingCost = calculateCheeseCost(sandwichSize, toppingIsExtra);
-            }
+
+        if (toppingType.equalsIgnoreCase("Meat")){
+             return calculateMeatCost(sandwichSize);
         }
-        return toppingCost;
+        else if (toppingType.equalsIgnoreCase("Cheese")){
+             return calculateCheeseCost(sandwichSize);
+        }
+        else {
+            return 0;
+        }
+
     }
 
-    public double calculateMeatCost(String sandwichSize, boolean toppingIsExtra){
+    public double calculateMeatCost(String sandwichSize){
         return switch (sandwichSize) {
             case "4" -> toppingIsExtra ? costMeatSize4 + extraCostMeatSize4 : costMeatSize4;  // 1.00 + 0.5 for extra
             case "8" -> toppingIsExtra ? costMeatSize8 + extraCostMeatSize8 : costMeatSize8;  // 2.00 + 1.00 for extra
@@ -121,7 +123,7 @@ public class Toppings {
         };
     }
 
-    public double calculateCheeseCost(String sandwichSize, boolean toppingIsExtra){
+    public double calculateCheeseCost(String sandwichSize){
         return switch (sandwichSize) {
             case "4" -> toppingIsExtra ? costCheeseSize4 + extraCostCheeseSize4 : costCheeseSize4;  // 0.75 + 0.30 for extra
             case "8" -> toppingIsExtra ? costCheeseSize8 + extraCostCheeseSize8: costCheeseSize8;  // 1.50 + 0.60 for extra
@@ -132,9 +134,10 @@ public class Toppings {
 
     @Override
     public String toString() {
-        return "Toppings{" +
-                "toppingName='" + toppingName + '\'' +
-                ", toppingType='" + toppingType + '\'' +
-                '}' + "\n";
+        String toppingDescription = "Topping: " + toppingName;
+        if (toppingIsExtra) {
+            toppingDescription += " (Extra)";
+        }
+        return toppingDescription;
     }
 }
