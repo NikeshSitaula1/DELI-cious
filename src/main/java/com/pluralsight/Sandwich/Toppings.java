@@ -1,5 +1,6 @@
 package com.pluralsight.Sandwich;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,10 +13,12 @@ public class Toppings {
 
 
     // FIXED VALUES
-    private final List<String> meatOptions = Arrays.asList("Steak","Ham","Salami","Roast beef","Chicken","Bacon");
-    private final List<String> cheeseOptions = Arrays.asList("American", "Provolone","Cheddar","Swiss");
-    private final List<String> regularOptions = Arrays.asList("Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapenos", "Cucumbers", "Pickles", "Guacamole", "Mushrooms");
-    private final List<String> sauceOptions = Arrays.asList("Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Islands", "Vinaigrette");
+    private final List<String> meatOptions = new ArrayList<>(List.of("Steak","Ham","Salami","Roast beef","Chicken","Bacon"));
+    private final List<String> cheeseOptions = new ArrayList<>(List.of("American", "Provolone","Cheddar","Swiss"));
+    private final List<String> regularOptions = new ArrayList<>(List.of("Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapenos",
+                                                                        "Cucumbers", "Pickles", "Guacamole", "Mushrooms"));
+    private final List<String> sauceOptions = new ArrayList<>(List.of("Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Islands", "Vinaigrette"));
+
     private final double costMeatSize4= 1.00, costMeatSize8= 2.00, costMeatSize12= 3.00;
     private final double extraCostMeatSize4= 0.50, extraCostMeatSize8= 1.00, extraCostMeatSize12= 1.50;
     private final double costCheeseSize4= 0.75, costCheeseSize8= 1.50, costCheeseSize12= 2.25;
