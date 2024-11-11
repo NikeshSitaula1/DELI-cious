@@ -1,4 +1,8 @@
 package com.pluralsight.Sandwich;
 
-public class SignatureSandwiches {
+import com.pluralsight.items.Sandwich;
+
+public class SignatureSandwiches extends Sandwich {
+
+
 }

@@ -14,6 +14,8 @@ public class Sandwich extends Items {
     private List<Toppings> toppingsList =  new ArrayList<Toppings>();
 
     //FIXED VALUES
+    private List<String> breadOptions = new ArrayList<>(List.of("White Bread", "Wheat", "Rye", "Wrap"));
+
     private final double sandwichSize4= 5.50, sandwichSize8= 7.00, sandwichSize12= 8.50;
 
 
@@ -37,6 +39,8 @@ public class Sandwich extends Items {
         super(name, quantity);
         this.sandwichSize = sandwichSize;
     }
+
+    public Sandwich(){}
 
 
     // ALL GETTERS AND SETTERS
@@ -68,6 +72,9 @@ public class Sandwich extends Items {
         return toppingsList;
     }
 
+    public List<String> getBreadOptions(){
+        return breadOptions;
+    }
 
 
     // ADD TOPPINGS
@@ -99,7 +106,7 @@ public class Sandwich extends Items {
             toppingsCost += toppings.calculateToppingCost(sandwichSize);
         }
 
-        return sandwichPrice + toppingsCost;
+        return (sandwichPrice + toppingsCost) * getQuantity();
     }
 
     @Override

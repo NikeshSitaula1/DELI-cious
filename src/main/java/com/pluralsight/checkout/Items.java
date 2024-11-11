@@ -10,6 +10,9 @@ public abstract class Items {
         this.quantity = quantity;
     }
 
+    protected Items() {
+    }
+
     public String getName() {
         return name;
     }

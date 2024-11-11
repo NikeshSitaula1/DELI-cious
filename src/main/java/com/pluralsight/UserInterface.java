@@ -1,13 +1,17 @@
 package com.pluralsight;
 
 import com.pluralsight.Sandwich.Toppings;
-import com.pluralsight.items.Chips;
+import com.pluralsight.checkout.Orders;
 import com.pluralsight.items.Sandwich;
 import com.pluralsight.util.Console;
 
 import java.util.List;
 
 public class UserInterface {
+
+    private Orders orderList = new Orders();
+
+    Sandwich sandwich = new Sandwich();
 
     // HOME SCREEN
     public void homeScreen() {
@@ -59,7 +63,7 @@ public class UserInterface {
                     case 1 -> processAddSandwich();
                     case 2 -> processAddDrinks();
                     case 3 -> processAddChips();
-                    case 5 -> displaySandwich(); /// DELETE LATER
+                    case 5 -> displaySandwich(); ///DELETE LATER
                     case 4 -> processCheckout();
                     case 0 -> {
                         return;
@@ -72,32 +76,100 @@ public class UserInterface {
         } while (true);
     }
 
-//todo START DOING THIS FIRST, GIVE TOPPING VARIABLE TO ADD TO YOUR TOPPING CONSTRUCTOR
+
     // ADD SANDWICH
     public void processAddSandwich() {
 
-
-
-
-
         String options = """
                 Please select from the following choices:
-                1 - Select your Bread
-                2 - Sandwich Size
-                3 - Toppings
-                4 - Would you like the sandwich toasted
+                1 - Make your own Custom Sandwich
+                2 - Choose one of your Signature Sandwich
                 0 - Cancel Order
                 
                 >>\s""";
 
+        int sandwichSelection;
 
-        String sandwichBread = Console.PromptForString("Select your bread: ");
-        String sandwichSize = Console.PromptForString("Sandwich size: ");
-        String sandwichTopping = Console.PromptForString("Toppings: ");// need more for this
+        do {
+            try {
+                sandwichSelection = Console.PromptForInt(options);
+                switch (sandwichSelection) {
+                    case 1 -> processCustomSandwich();
+                    case 2 -> processSignatureSandwich();
+                    case 0 -> {
+                        return;
+                    }
+                    default -> System.out.println("Invalid entry. Please try again.");
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid entry. Please try again." + e.getMessage());
+            }
+        } while (true);
+    }
 
-        String toppingName = Console.PromptForString();
 
-        Toppings toppings = new Toppings ();
+    //todo START DOING THIS FIRST, GIVE TOPPING VARIABLE TO ADD TO YOUR TOPPING CONSTRUCTOR
+    public void processCustomSandwich() {
+
+        List<String> breadOptions = sandwich.getBreadOptions();
+
+        // SANDWICH BREAD
+        String sandwichBread;
+        do{
+            try{
+                System.out.println("Please select your bread: ");
+                for (int i = 0; i < breadOptions.size(); i++){
+                    System.out.println((i + 1) + ". " + breadOptions.get(i));
+                }
+                System.out.println("0. Cancel Order");
+
+                int breadChoice = Console.PromptForInt(">> ");
+
+                if (breadChoice == 0) {
+                    System.out.println("Order canceled. Returning to main menu.");
+                    return;
+                } else if (breadChoice >= 1 && breadChoice <= breadOptions.size()) {
+                    sandwichBread = breadOptions.get(breadChoice - 1);
+                    System.out.println("You selected: " + sandwichBread);
+                    break;
+                } else {
+                    System.out.println("Invalid selection. Please try again.");
+                }
+            }catch (Exception e){
+                System.out.println("Invalid selection. Please try again.");
+            }
+        }while(true);
+
+        // SIZES
+        String sandwichSize = Console.PromptForString("""
+                Choose Sandwich Size: (4" , 8", 12"):\s""");
+        sandwich.setSandwichSize(sandwichSize);
+
+        // TOPPINGS
+        processAddToppings();
+
+        // TOASTED
+        boolean toasted = Console.PromptForYesNo("Would you like the sandwich toasted? ");
+        String isToasted = toasted ? "Yes" : "No";
+
+        sandwich.setSandwichBread(sandwichBread);
+        sandwich.setToasted(isToasted);
+
+
+
+        orderList.addItems(sandwich);
+        System.out.println("Sandwich added successfully!!");
+
+    }
+
+
+
+    public void processSignatureSandwich(){
+
+    }
+
+    // ADD TOPPINGS
+    public void processAddToppings(){
 
 
 
@@ -139,7 +211,7 @@ public class UserInterface {
 
 
 
-        Sandwich sandwich = new Sandwich("ham sandwich", 1, "8", "Mac&Cheese", "true");
+        Sandwich sandwich = new Sandwich("ham sandwich", 2, "8", "Mac&Cheese", "true");
 
         sandwich.addTopping(cheeseTopping2);
         sandwich.addTopping(cheeseToppings);
