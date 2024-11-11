@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import com.pluralsight.FileManager.OrderFileManager;
 import com.pluralsight.Sandwich.Toppings;
 import com.pluralsight.checkout.Orders;
 import com.pluralsight.items.Sandwich;
@@ -172,9 +173,6 @@ public class UserInterface {
     public void processAddToppings(){
 
 
-
-
-
     }
 
     // ADD DRINKS
@@ -197,7 +195,7 @@ public class UserInterface {
 
     //CHECKOUT
     public void processCheckout(){
-
+        OrderFileManager.writeOrderReceipt("Testing");
     }
 
 
