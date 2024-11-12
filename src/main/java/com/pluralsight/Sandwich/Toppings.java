@@ -86,37 +86,6 @@ public class Toppings {
     }
 
 
-    public boolean validMeatOption(String toppingName){
-        return meatOptions.contains(toppingName.toLowerCase().trim());
-    }
-
-    public boolean validCheeseOption(String toppingName){
-        return cheeseOptions.contains(toppingName.toLowerCase().trim());
-    }
-
-    public boolean validRegularOption(String toppingName){
-        return regularOptions.contains(toppingName.toLowerCase().trim());
-    }
-
-    public boolean validSauceOptions(String toppingName){
-        return sauceOptions.contains(toppingName.toLowerCase().trim());
-    }
-
-    public void toppingOption(String toppingName, String toppingType) {
-        if (toppingType.equalsIgnoreCase("Meat") && !validMeatOption(toppingName)){
-            System.out.println("Invalid meat option, Please choose a valid meat option");
-        }
-        if (toppingType.equalsIgnoreCase("Cheese") && !validCheeseOption(toppingName)){
-            System.out.println("Invalid cheese option, Please choose a valid cheese option");
-        }
-        if (toppingType.equalsIgnoreCase("Regular") && !validRegularOption(toppingName)){
-            System.out.println("Invalid Regular option, Please choose a valid Regular topping option");
-        }
-        if (toppingType.equalsIgnoreCase("Sauce") && !validSauceOptions(toppingName)){
-            System.out.println("Invalid Sauce option, Please choose a valid sauce option");
-        }
-    }
-
 
     // MAIN CALCULATION
     public double calculateToppingCost(String sandwichSize) {
