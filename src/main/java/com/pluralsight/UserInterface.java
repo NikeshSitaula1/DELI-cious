@@ -310,13 +310,16 @@ public class UserInterface {
 
         chip.setChipType(chipsType);
 
-
         orderList.addItems(chip);
         System.out.println("Chip successfully added");
     }
 
     //CHECKOUT
     public void processCheckout(){
+
+        System.out.println(orderList.toString());
+
+        // Write order summary to receipt file
         OrderFileManager.writeOrderReceipt(orderList.toString());
     }
 

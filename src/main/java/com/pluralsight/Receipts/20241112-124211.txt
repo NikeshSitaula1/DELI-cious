@@ -1,0 +1,6 @@
+Order Summary:
+Sandwich{, sandwichBread='Rye', sandwichSize='12', Toppings='[]', isToasted='No', price= 0.0}
+Drink{Size='Large', Flavor='Mountain Dew', Total Price= $0.0}
+Chips{Type='Cheetos', Total Price= $0.0}
+Sandwich{, sandwichBread='Rye', sandwichSize='12', Toppings='[]', isToasted='No', price= 0.0}
+Grand Total: $0.0

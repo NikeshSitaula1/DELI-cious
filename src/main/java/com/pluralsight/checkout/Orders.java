@@ -35,5 +35,4 @@ public class Orders {
         summary.append("Grand Total: $").append(calculateTotalPrice());
         return summary.toString();
     }
-
 }

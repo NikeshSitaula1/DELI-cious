@@ -37,8 +37,7 @@ public class Chips extends Items {
 
     @Override
     public double calculatePrice() {
-
-        return chipsPrice * getQuantity();
+        return chipsPrice;
     }
 
     @Override

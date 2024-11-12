@@ -105,8 +105,9 @@ public class Sandwich extends Items {
             toppingsCost += toppings.calculateToppingCost(sandwichSize);
         }
 
-        return (sandwichPrice + toppingsCost) * getQuantity();
+        return sandwichPrice + toppingsCost;
     }
+
 
     @Override
     public String toString() {

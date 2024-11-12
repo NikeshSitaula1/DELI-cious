@@ -48,16 +48,18 @@ public class Drinks extends Items {
     @Override
     public double calculatePrice() {
 
+        double drinkPrice = 0;
+
         if (drinkSize.equalsIgnoreCase("Small")) {
-            return drinksSmall * getQuantity();
+            drinkPrice =  drinksSmall;
         }
         else if(drinkSize.equalsIgnoreCase("Medium")) {
-            return drinksMedium * getQuantity();
+            drinkPrice =  drinksMedium;
         }
         else if (drinkSize.equalsIgnoreCase("Large")) {
-            return drinksLarge * getQuantity();
+            drinkPrice =  drinksLarge;
         }
-        return 0;
+        return drinkPrice;
     }
 
     @Override
