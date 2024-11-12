@@ -164,7 +164,8 @@ public class UserInterface {
         String isToasted;
         do {
             isToasted = Console.PromptForString("Would you like the sandwich toasted? (Yes/No): ");
-            if (isToasted.equalsIgnoreCase("Yes") || isToasted.equalsIgnoreCase("No")) {
+            if (isToasted.equalsIgnoreCase("Yes") || isToasted.equalsIgnoreCase("y")
+                    || isToasted.equalsIgnoreCase("No") || isToasted.equalsIgnoreCase("n")) {
                 break;
             } else {
                 System.out.println("Invalid selection. Please enter 'Yes' or 'No'.");
@@ -296,7 +297,7 @@ public class UserInterface {
 
     //CHECKOUT
     public void processCheckout(){
-        OrderFileManager.writeOrderReceipt("Testing");
+        OrderFileManager.writeOrderReceipt(orderList.toString());
     }
 
 }
