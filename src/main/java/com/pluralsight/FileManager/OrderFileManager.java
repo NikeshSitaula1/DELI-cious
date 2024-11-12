@@ -1,5 +1,6 @@
 package com.pluralsight.FileManager;
 
+import java.io.File;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,6 +16,7 @@ public class OrderFileManager {
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
             String filename = localDateTime.format(formatter) + ".txt";
+            //File folderPath = new File("C:\\Users\\Nike\\Pluralsight\\java-development\\Capstones\\DELI-cious\\src\\main\\java\\com\\pluralsight\\Receipts");
 
             BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
 

@@ -13,12 +13,11 @@ import java.util.List;
 public class UserInterface {
 
     private Orders orderList = new Orders();
-
     Sandwich sandwich = new Sandwich();
     Drinks drink = new Drinks();
     Chips chip = new Chips();
 
-    // HOME SCREEN
+    //HOME SCREEN
     public void homeScreen() {
 
         String options = """
@@ -46,7 +45,7 @@ public class UserInterface {
     }
 
 
-    // ORDER SCREEN
+    //ORDER SCREEN
     public void orderScreen() {
 
         String options = """
@@ -81,7 +80,7 @@ public class UserInterface {
     }
 
 
-    // ADD SANDWICH
+    //ADD SANDWICH
     public void processAddSandwich() {
 
         String options = """
@@ -110,12 +109,11 @@ public class UserInterface {
     }
 
 
-    //todo START DOING THIS FIRST, GIVE TOPPING VARIABLE TO ADD TO YOUR TOPPING CONSTRUCTOR
     public void processCustomSandwich() {
 
         List<String> breadOptions = sandwich.getBreadOptions();
 
-        // SANDWICH BREAD
+        //SANDWICH BREAD
         String sandwichBread;
         do{
             try{
@@ -142,7 +140,7 @@ public class UserInterface {
             }
         }while(true);
 
-        // SIZES
+        //SIZES
         String sandwichSize;
         do {
             sandwichSize = Console.PromptForString("Choose Sandwich Size: (4\", 8\", 12\"): ");
@@ -157,10 +155,10 @@ public class UserInterface {
             }
         } while (true);
 
-        // TOPPINGS
+        //TOPPINGS
         //processAddToppings();
 
-        // TOASTED
+        //TOASTED
         String isToasted;
         do {
             isToasted = Console.PromptForString("Would you like the sandwich toasted? (Yes/No): ");
@@ -176,7 +174,7 @@ public class UserInterface {
         System.out.println("You selected: " + isToasted);
 
 
-    // ADD SANDWICH TO ORDER LIST
+    //ADD SANDWICH TO ORDER LIST
         orderList.addItems(sandwich);
         System.out.println("Sandwich added successfully!!");
 
@@ -187,14 +185,14 @@ public class UserInterface {
 
     }
 
-    /// ADD TOPPINGS
+    ///ADD TOPPINGS
     public void processAddToppings(){
 
         Toppings toppingAdd = new Toppings();
 
     }
 
-    // ADD DRINKS
+    //ADD DRINKS
     public void processAddDrinks() {
 
         // DRINK FLAVOR
@@ -230,36 +228,50 @@ public class UserInterface {
         System.out.println(drinkFlavor + " added");
 
 
-        // DRINK SIZE
+        //DRINK SIZE
         String drinkSize;
 
-        String drinkSizeOptions  = Console.PromptForString("""
-                Select drink size:
-                1. Small
-                2. Medium
-                3. Large
-                >>\s""");
+        do {
+            try {
+                System.out.println("Select drink size:");
+                System.out.println("1. Small");
+                System.out.println("2. Medium");
+                System.out.println("3. Large");
+                System.out.println("0. Cancel Order");
 
-        switch (drinkSizeOptions) {
-            case "1" -> drinkSize = "Small";
-            case "2" -> drinkSize = "Medium";
-            case "3" -> drinkSize = "Large";
-            default -> {
-                System.out.println("Invalid selection, Defaulting to Small");
-                drinkSize = "Small";
+                int sizeChoice = Console.PromptForInt(">> ");
+
+                if (sizeChoice == 0) {
+                    System.out.println("Order canceled. Returning to main menu.");
+                    return;
+                } else if (sizeChoice == 1) {
+                    drinkSize = "Small";
+                    break;
+                } else if (sizeChoice == 2) {
+                    drinkSize = "Medium";
+                    break;
+                } else if (sizeChoice == 3) {
+                    drinkSize = "Large";
+                    break;
+                } else {
+                    System.out.println("Invalid selection. Please try again.");
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a number.");
             }
-        }
+        } while (true);
 
         drink.setDrinkSize(drinkSize);
-        System.out.println("The size you picked is: " + drinkSize);
+        System.out.println("Drink size: " + drinkSize);
 
-    // ADD DRINKS IN THE ORDER LIST
+
+        //ADD DRINKS IN THE ORDER LIST
         orderList.addItems(drink);
         System.out.println("Drinks added successfully!!");
     }
 
 
-    // ADD CHIPS
+    //ADD CHIPS
     public void processAddChips() {
 
         List<String> chipsTypeList = chip.getChipsTypeList();

@@ -19,11 +19,10 @@ public class Toppings {
     private final List<String> sauceOptions = new ArrayList<>(List.of("Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Islands", "Vinaigrette"));
 
 
-    private final double costMeatSize4= 1.00, costMeatSize8= 2.00, costMeatSize12= 3.00;
-    private final double extraCostMeatSize4= 0.50, extraCostMeatSize8= 1.00, extraCostMeatSize12= 1.50;
-    private final double costCheeseSize4= 0.75, costCheeseSize8= 1.50, costCheeseSize12= 2.25;
-    private final double extraCostCheeseSize4= 0.30, extraCostCheeseSize8= 0.60, extraCostCheeseSize12= 0.90;
-
+    private static final double costMeatSize4= 1.00, costMeatSize8= 2.00, costMeatSize12= 3.00;
+    private static final double extraCostMeatSize4= 0.50, extraCostMeatSize8= 1.00, extraCostMeatSize12= 1.50;
+    private static final double costCheeseSize4= 0.75, costCheeseSize8= 1.50, costCheeseSize12= 2.25;
+    private static final double extraCostCheeseSize4= 0.30, extraCostCheeseSize8= 0.60, extraCostCheeseSize12= 0.90;
 
 
     // CONSTRUCTORS

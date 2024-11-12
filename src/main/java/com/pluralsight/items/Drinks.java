@@ -12,6 +12,7 @@ public class Drinks extends Items {
 
     //FIXED VALUES
     private List<String> drinkFlavorList = new ArrayList<>(List.of("Coke", "Fanta", "Sprite", "Mountain Dew", "Tropicana", "Arizona Ice tea" ));
+    private static final double drinksSmall = 2.0, drinksMedium = 2.50 , drinksLarge = 3.0;
 
     //CONSTRUCTORS
     public Drinks(String name, int quantity, String drinkSize, String drinkFlavor) {
@@ -46,9 +47,6 @@ public class Drinks extends Items {
 
     @Override
     public double calculatePrice() {
-        double drinksSmall = 2.0;
-        double drinksMedium = 2.50;
-        double drinksLarge = 3.0;
 
         if (drinkSize.equalsIgnoreCase("Small")) {
             return drinksSmall * getQuantity();

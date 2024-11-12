@@ -10,7 +10,8 @@ public class Chips extends Items {
     private String chipsType;
 
     //FIXED VALUES
-    private List<String> chipsTypeList = new ArrayList<>(List.of("Lays", "Cheetos", "Doritos" ));
+    private List<String> chipsTypeList = new ArrayList<>(List.of("Lays", "Cheetos", "Doritos"));
+    private static final double chipsPrice = 1.5;
 
     //CONSTRUCTORS
     public Chips(String name, int quantity, String chipType) {
@@ -36,8 +37,6 @@ public class Chips extends Items {
 
     @Override
     public double calculatePrice() {
-
-        double chipsPrice = 1.5;
 
         if (chipsType.equalsIgnoreCase(getName())) {
             return chipsPrice;

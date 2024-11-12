@@ -15,8 +15,7 @@ public class Sandwich extends Items {
 
     //FIXED VALUES
     private List<String> breadOptions = new ArrayList<>(List.of("White Bread", "Wheat", "Rye", "Wrap"));
-
-    private final double sandwichSize4= 5.50, sandwichSize8= 7.00, sandwichSize12= 8.50;
+    private static final double sandwichSize4= 5.50, sandwichSize8= 7.00, sandwichSize12= 8.50;
 
 
     // ALL CONSTRUCTORS
