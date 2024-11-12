@@ -1,5 +1,9 @@
 package com.pluralsight.checkout;
 
+import com.pluralsight.items.Chips;
+import com.pluralsight.items.Drinks;
+import com.pluralsight.items.Sandwich;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,5 +26,14 @@ public class Orders {
         return orderTotalPrice;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder summary = new StringBuilder("Order Summary:\n");
+        for (Items item : itemList) {
+            summary.append(item.toString()).append("\n");
+        }
+        summary.append("Grand Total: $").append(calculateTotalPrice());
+        return summary.toString();
+    }
 
 }

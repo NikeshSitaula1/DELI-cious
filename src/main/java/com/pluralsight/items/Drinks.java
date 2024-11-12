@@ -57,9 +57,16 @@ public class Drinks extends Items {
         else if (drinkSize.equalsIgnoreCase("Large")) {
             return drinksLarge * getQuantity();
         }
-        else {
-            System.out.println("Please choose between Small, Medium or Large. ");
-        }
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return "Drink{" +
+                "Size='" + drinkSize + '\'' +
+                ", Flavor='" + drinkFlavor + '\'' +
+                ", Total Price= $" + calculatePrice() +
+                '}';
+    }
+
 }

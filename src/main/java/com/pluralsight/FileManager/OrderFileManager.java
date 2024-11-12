@@ -15,8 +15,7 @@ public class OrderFileManager {
             LocalDateTime localDateTime = LocalDateTime.now();
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
-            String filename = localDateTime.format(formatter) + ".txt";
-            //File folderPath = new File("C:\\Users\\Nike\\Pluralsight\\java-development\\Capstones\\DELI-cious\\src\\main\\java\\com\\pluralsight\\Receipts");
+            String filename = "src/main/java/com/pluralsight/Receipts/" + localDateTime.format(formatter) + ".txt";
 
             BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
 

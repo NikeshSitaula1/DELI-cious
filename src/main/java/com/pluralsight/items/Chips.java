@@ -38,20 +38,14 @@ public class Chips extends Items {
     @Override
     public double calculatePrice() {
 
-        if (chipsType.equalsIgnoreCase(getName())) {
-            return chipsPrice;
-        } else if (chipsType.equalsIgnoreCase("No")) {
-            return 0;
-        } else {
-            System.out.println("Please choose chips or Choose No to exit. ");
-        }
         return chipsPrice * getQuantity();
     }
 
     @Override
     public String toString() {
         return "Chips{" +
-                "total price= " + calculatePrice() + '\'' +
+                "Type='" + chipsType + '\'' +
+                ", Total Price= $" + calculatePrice() +
                 '}';
     }
 }

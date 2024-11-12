@@ -8,8 +8,8 @@ import java.util.List;
 
 public class Sandwich extends Items {
 
-    private String sandwichSize;
     private String sandwichBread;
+    private String sandwichSize;
     private String isToasted;
     private List<Toppings> toppingsList =  new ArrayList<Toppings>();
 
@@ -19,17 +19,17 @@ public class Sandwich extends Items {
 
 
     // ALL CONSTRUCTORS
-    public Sandwich(String name, int quantity, String sandwichSize, String sandwichBread, String isToasted) {
+    public Sandwich(String name, int quantity, String sandwichBread, String sandwichSize, String isToasted) {
         super(name, quantity);
-        this.sandwichSize = sandwichSize;
         this.sandwichBread = sandwichBread;
+        this.sandwichSize = sandwichSize;
         this.isToasted = isToasted;
     }
 
-    public Sandwich(String name, int quantity, String sandwichSize, String sandwichBread, String isToasted, List<Toppings> toppingsList) {
+    public Sandwich(String name, int quantity, String sandwichBread, String sandwichSize,  String isToasted, List<Toppings> toppingsList) {
         super(name, quantity);
-        this.sandwichSize = sandwichSize;
         this.sandwichBread = sandwichBread;
+        this.sandwichSize = sandwichSize;
         this.isToasted = isToasted;
         this.toppingsList = toppingsList;
     }
@@ -100,10 +100,6 @@ public class Sandwich extends Items {
         else if (sandwichSize.equals("12")) {
             sandwichPrice = sandwichSize12;
         }
-        else{
-            System.out.println("Invalid sandwich size. Please one of the correct size. 4\", 8\", 12\": ");
-        }
-
 
         for (Toppings toppings : toppingsList){
             toppingsCost += toppings.calculateToppingCost(sandwichSize);
@@ -115,10 +111,12 @@ public class Sandwich extends Items {
     @Override
     public String toString() {
         return "Sandwich{" +
-                "sandwichSize='" + sandwichSize + '\'' +
                 ", sandwichBread='" + sandwichBread + '\'' +
+                ", sandwichSize='" + sandwichSize + '\'' +
                 ", Toppings='" + toppingsList + '\'' +
+                ", isToasted='" + isToasted + '\'' +
                 ", price= " + calculatePrice() +
-                '}' + "\n";
+                '}';
     }
+
 }

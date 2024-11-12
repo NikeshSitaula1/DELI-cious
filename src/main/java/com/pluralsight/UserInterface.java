@@ -13,9 +13,9 @@ import java.util.List;
 public class UserInterface {
 
     private Orders orderList = new Orders();
-    Sandwich sandwich = new Sandwich();
-    Drinks drink = new Drinks();
-    Chips chip = new Chips();
+    private Sandwich sandwich = new Sandwich();
+    private Drinks drink = new Drinks();
+    private Chips chip = new Chips();
 
     //HOME SCREEN
     public void homeScreen() {
@@ -130,6 +130,7 @@ public class UserInterface {
                     return;
                 } else if (breadChoice >= 1 && breadChoice <= breadOptions.size()) {
                     sandwichBread = breadOptions.get(breadChoice - 1);
+                    sandwich.setSandwichBread(sandwichBread);
                     System.out.println("You selected: " + sandwichBread);
                     break;
                 } else {
@@ -139,6 +140,7 @@ public class UserInterface {
                 System.out.println("Invalid selection. Please try again.");
             }
         }while(true);
+
 
         //SIZES
         String sandwichSize;
@@ -162,16 +164,18 @@ public class UserInterface {
         String isToasted;
         do {
             isToasted = Console.PromptForString("Would you like the sandwich toasted? (Yes/No): ");
-            if (isToasted.equalsIgnoreCase("Yes") || isToasted.equalsIgnoreCase("y")
-                    || isToasted.equalsIgnoreCase("No") || isToasted.equalsIgnoreCase("n")) {
+            if (isToasted.equalsIgnoreCase("Yes") || isToasted.equalsIgnoreCase("y")) {
+                sandwich.setToasted("Yes");
+                System.out.println("You selected: Toasted");
+                break;
+            } else if (isToasted.equalsIgnoreCase("No") || isToasted.equalsIgnoreCase("n")) {
+                sandwich.setToasted("No");
+                System.out.println("You selected: Not Toasted");
                 break;
             } else {
                 System.out.println("Invalid selection. Please enter 'Yes' or 'No'.");
             }
         } while (true);
-
-        sandwich.setToasted(isToasted);
-        System.out.println("You selected: " + isToasted);
 
 
     //ADD SANDWICH TO ORDER LIST
@@ -189,6 +193,7 @@ public class UserInterface {
     public void processAddToppings(){
 
         Toppings toppingAdd = new Toppings();
+
 
     }
 
@@ -212,7 +217,8 @@ public class UserInterface {
                 if (flavorChoice == 0) {
                     System.out.println("Order canceled. Returning to main menu.");
                     return;
-                } else if (flavorChoice >= 1 && flavorChoice <= drinkFlavorList.size()) {
+                }
+                if (flavorChoice >= 1 && flavorChoice <= drinkFlavorList.size()) {
                     drinkFlavor = drinkFlavorList.get(flavorChoice - 1);
                     System.out.println("You selected: " + drinkFlavor);
                     break;
@@ -302,10 +308,12 @@ public class UserInterface {
             }
         }while (true);
 
-        drink.setDrinkFlavor(chipsType);
-        System.out.println(chipsType + " added");
-    }
+        chip.setChipType(chipsType);
 
+
+        orderList.addItems(chip);
+        System.out.println("Chip successfully added");
+    }
 
     //CHECKOUT
     public void processCheckout(){
