@@ -3,6 +3,7 @@ package com.pluralsight;
 import com.pluralsight.FileManager.OrderFileManager;
 import com.pluralsight.Sandwich.Toppings;
 import com.pluralsight.checkout.Orders;
+import com.pluralsight.items.Drinks;
 import com.pluralsight.items.Sandwich;
 import com.pluralsight.util.Console;
 
@@ -13,6 +14,7 @@ public class UserInterface {
     private Orders orderList = new Orders();
 
     Sandwich sandwich = new Sandwich();
+    Drinks drink = new Drinks();
 
     // HOME SCREEN
     public void homeScreen() {
@@ -91,21 +93,19 @@ public class UserInterface {
 
         int sandwichSelection;
 
-        do {
-            try {
-                sandwichSelection = Console.PromptForInt(options);
-                switch (sandwichSelection) {
-                    case 1 -> processCustomSandwich();
-                    case 2 -> processSignatureSandwich();
-                    case 0 -> {
-                        return;
-                    }
-                    default -> System.out.println("Invalid entry. Please try again.");
+        try {
+            sandwichSelection = Console.PromptForInt(options);
+            switch (sandwichSelection) {
+                case 1 -> processCustomSandwich();
+                case 2 -> processSignatureSandwich();
+                case 0 -> {
+                    return;
                 }
-            } catch (Exception e) {
-                System.out.println("Invalid entry. Please try again." + e.getMessage());
+                default -> System.out.println("Invalid entry. Please try again.");
             }
-        } while (true);
+        } catch (Exception e) {
+            System.out.println("Invalid entry. Please try again." + e.getMessage());
+        }
     }
 
 
@@ -142,45 +142,119 @@ public class UserInterface {
         }while(true);
 
         // SIZES
-        String sandwichSize = Console.PromptForString("""
-                Choose Sandwich Size: (4" , 8", 12"):\s""");
-        sandwich.setSandwichSize(sandwichSize);
+        String sandwichSize;
+        do {
+            sandwichSize = Console.PromptForString("Choose Sandwich Size: (4\", 8\", 12\"): ");
+            sandwich.setSandwichSize(sandwichSize);
+
+            // Check if the size was set successfully
+            if (sandwichSize.equals(sandwich.getSandwichSize())) {
+                System.out.println("You selected: " + sandwichSize);
+                break;
+            } else {
+                System.out.println("Please try again.");
+            }
+        } while (true);
 
         // TOPPINGS
-        processAddToppings();
+        //processAddToppings();
 
         // TOASTED
-        boolean toasted = Console.PromptForYesNo("Would you like the sandwich toasted? ");
-        String isToasted = toasted ? "Yes" : "No";
+        String isToasted;
+        do {
+            isToasted = Console.PromptForString("Would you like the sandwich toasted? (Yes/No): ");
+            if (isToasted.equalsIgnoreCase("Yes") || isToasted.equalsIgnoreCase("No")) {
+                break;
+            } else {
+                System.out.println("Invalid selection. Please enter 'Yes' or 'No'.");
+            }
+        } while (true);
 
-        sandwich.setSandwichBread(sandwichBread);
         sandwich.setToasted(isToasted);
+        System.out.println("You selected: " + isToasted);
 
 
-
+    // ADD SANDWICH TO ORDER LIST
         orderList.addItems(sandwich);
         System.out.println("Sandwich added successfully!!");
 
     }
 
 
-
     public void processSignatureSandwich(){
 
     }
 
-    // ADD TOPPINGS
+    /// ADD TOPPINGS
     public void processAddToppings(){
 
+        Toppings toppingAdd = new Toppings();
 
     }
 
     // ADD DRINKS
     public void processAddDrinks() {
 
-        String drinkSize  = Console.PromptForString("Drink size: ");
-        String drinkFlavor = Console.PromptForString("Drink Flavor: ");
+        // DRINK FLAVOR
+        List<String> drinkFlavorList = drink.getDrinkFlavorList();
+        String drinkFlavor;
 
+        do{
+            try{
+                System.out.println("Please select your drink flavor:");
+                for (int i = 0; i < drinkFlavorList.size(); i++) {
+                    System.out.println((i + 1) + ". " + drinkFlavorList.get(i));
+                }
+                System.out.println("0. Cancel Order");
+
+                int flavorChoice = Console.PromptForInt(">> ");
+
+                if (flavorChoice == 0) {
+                    System.out.println("Order canceled. Returning to main menu.");
+                    return;
+                } else if (flavorChoice >= 1 && flavorChoice <= drinkFlavorList.size()) {
+                    drinkFlavor = drinkFlavorList.get(flavorChoice - 1);
+                    System.out.println("You selected: " + drinkFlavor);
+                    break;
+                } else {
+                    System.out.println("Invalid selection. Please try again.");
+                }
+            }catch (Exception e){
+                System.out.println("Invalid selection. Please try again");
+            }
+        }while (true);
+
+        drink.setDrinkFlavor(drinkFlavor);
+        System.out.println(drinkFlavor + " added");
+
+
+        // DRINK SIZE
+        String drinkSize;
+
+        String drinkSizeOptions  = Console.PromptForString("""
+                Select drink size:
+                1. Small
+                2. Medium
+                3. Large
+                >>\s""");
+
+        switch (drinkSizeOptions) {
+            case "1" -> drinkSize = "Small";
+            case "2" -> drinkSize = "Medium";
+            case "3" -> drinkSize = "Large";
+            default -> {
+                System.out.println("Invalid selection, Defaulting to Small");
+                drinkSize = "Small";
+            }
+        }
+
+        drink.setDrinkSize(drinkSize);
+        System.out.println("The size you picked is: " + drinkSize);
+
+
+    // ADD DRINKS IN THE ORDER LIST
+        orderList.addItems(drink);
+        System.out.println("Drinks added successfully!!");
     }
 
 

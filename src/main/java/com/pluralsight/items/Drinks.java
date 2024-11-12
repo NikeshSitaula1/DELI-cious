@@ -2,16 +2,24 @@ package com.pluralsight.items;
 
 import com.pluralsight.checkout.Items;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Drinks extends Items {
 
     private String drinkSize;
     private String drinkFlavor;
+
+    //FIXED VALUES
+    private List<String> drinkFlavorList = new ArrayList<>(List.of("Mango","Coke","Orange"));
 
     public Drinks(String name, int quantity, String drinkSize, String drinkFlavor) {
         super(name,quantity);
         this.drinkSize = drinkSize;
         this.drinkFlavor = drinkFlavor;
     }
+
+    public Drinks(){};
 
     public String getDrinkSize() {
         return drinkSize;
@@ -27,6 +35,10 @@ public class Drinks extends Items {
 
     public void setDrinkFlavor(String drinkFlavor) {
         this.drinkFlavor = drinkFlavor;
+    }
+
+    public List<String> getDrinkFlavorList(){
+        return drinkFlavorList;
     }
 
 

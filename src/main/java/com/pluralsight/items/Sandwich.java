@@ -49,7 +49,11 @@ public class Sandwich extends Items {
     }
 
     public void setSandwichSize(String sandwichSize) {
-        this.sandwichSize = sandwichSize;
+        if (sandwichSize.equals("4") || sandwichSize.equals("8") || sandwichSize.equals("12")) {
+            this.sandwichSize = sandwichSize;
+        } else {
+            System.out.println("Invalid size. Please choose 4\", 8\", or 12\".");
+        }
     }
 
     public String getSandwichBread() {
@@ -65,7 +69,7 @@ public class Sandwich extends Items {
     }
 
     public void setToasted(String toasted) {
-        isToasted = toasted;
+        this.isToasted = toasted;
     }
 
     public List<Toppings> getToppingsList() {

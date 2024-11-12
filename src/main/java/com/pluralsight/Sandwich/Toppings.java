@@ -12,9 +12,9 @@ public class Toppings {
 
 
     // FIXED VALUES
-    private  List<String> meatOptions = new ArrayList<>(List.of("Steak","Ham","Salami","Roast beef","Chicken","Bacon"));
-    private  List<String> cheeseOptions = new ArrayList<>(List.of("American", "Provolone","Cheddar","Swiss"));
-    private  List<String> regularOptions = new ArrayList<>(List.of("Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapenos",
+    private List<String> meatOptions = new ArrayList<>(List.of("Steak","Ham","Salami","Roast beef","Chicken","Bacon"));
+    private List<String> cheeseOptions = new ArrayList<>(List.of("American", "Provolone","Cheddar","Swiss"));
+    private List<String> regularOptions = new ArrayList<>(List.of("Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapenos",
                                                                         "Cucumbers", "Pickles", "Guacamole", "Mushrooms"));
     private final List<String> sauceOptions = new ArrayList<>(List.of("Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Islands", "Vinaigrette"));
 
