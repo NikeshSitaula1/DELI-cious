@@ -3,6 +3,7 @@ package com.pluralsight;
 import com.pluralsight.FileManager.OrderFileManager;
 import com.pluralsight.Sandwich.Toppings;
 import com.pluralsight.checkout.Orders;
+import com.pluralsight.items.Chips;
 import com.pluralsight.items.Drinks;
 import com.pluralsight.items.Sandwich;
 import com.pluralsight.util.Console;
@@ -15,6 +16,7 @@ public class UserInterface {
 
     Sandwich sandwich = new Sandwich();
     Drinks drink = new Drinks();
+    Chips chip = new Chips();
 
     // HOME SCREEN
     public void homeScreen() {
@@ -66,7 +68,6 @@ public class UserInterface {
                     case 1 -> processAddSandwich();
                     case 2 -> processAddDrinks();
                     case 3 -> processAddChips();
-                    case 5 -> displaySandwich(); ///DELETE LATER
                     case 4 -> processCheckout();
                     case 0 -> {
                         return;
@@ -201,7 +202,7 @@ public class UserInterface {
 
         do{
             try{
-                System.out.println("Please select your drink flavor:");
+                System.out.println("Select your drink from the menu option:");
                 for (int i = 0; i < drinkFlavorList.size(); i++) {
                     System.out.println((i + 1) + ". " + drinkFlavorList.get(i));
                 }
@@ -251,7 +252,6 @@ public class UserInterface {
         drink.setDrinkSize(drinkSize);
         System.out.println("The size you picked is: " + drinkSize);
 
-
     // ADD DRINKS IN THE ORDER LIST
         orderList.addItems(drink);
         System.out.println("Drinks added successfully!!");
@@ -261,39 +261,42 @@ public class UserInterface {
     // ADD CHIPS
     public void processAddChips() {
 
-        String chipType  = Console.PromptForString("Type of chips: ");
+        List<String> chipsTypeList = chip.getChipsTypeList();
+        String chipsType;
 
+        do{
+            try{
+                System.out.println("Select Chips from the menu option:");
+                for (int i = 0; i < chipsTypeList.size(); i++) {
+                    System.out.println((i + 1) + ". " + chipsTypeList.get(i));
+                }
+                System.out.println("0. Cancel Order");
 
+                int chipsChoice = Console.PromptForInt(">> ");
+
+                if (chipsChoice == 0) {
+                    System.out.println("Order canceled. Returning to main menu.");
+                    return;
+                } else if (chipsChoice >= 1 && chipsChoice <= chipsTypeList.size()) {
+                    chipsType = chipsTypeList.get(chipsChoice - 1);
+                    System.out.println("You selected: " + chipsType);
+                    break;
+                } else {
+                    System.out.println("Invalid selection. Please try again.");
+                }
+            }catch (Exception e){
+                System.out.println("Invalid selection. Please try again");
+            }
+        }while (true);
+
+        drink.setDrinkFlavor(chipsType);
+        System.out.println(chipsType + " added");
     }
 
 
     //CHECKOUT
     public void processCheckout(){
         OrderFileManager.writeOrderReceipt("Testing");
-    }
-
-
-    // TESTING
-    public void displaySandwich(){
-
-        Toppings cheeseToppings = new Toppings("steak", "meat", true);
-        Toppings meatTopping = new Toppings("Salami","meat", false);
-        Toppings cheeseTopping2 = new Toppings("Cheddar","cheese", false);
-        Toppings regularTopping = new Toppings("Lettuce","Regular", false);
-
-
-
-        Sandwich sandwich = new Sandwich("ham sandwich", 2, "8", "Mac&Cheese", "true");
-
-        sandwich.addTopping(cheeseTopping2);
-        sandwich.addTopping(cheeseToppings);
-        sandwich.addTopping(meatTopping);
-        sandwich.addTopping(regularTopping);
-
-        System.out.println(sandwich);
-
-        // 7 + 2 + 1 + 2 + 1.50 = 13.5
-
     }
 
 }

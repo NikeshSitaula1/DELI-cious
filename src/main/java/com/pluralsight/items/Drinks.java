@@ -11,16 +11,18 @@ public class Drinks extends Items {
     private String drinkFlavor;
 
     //FIXED VALUES
-    private List<String> drinkFlavorList = new ArrayList<>(List.of("Mango","Coke","Orange"));
+    private List<String> drinkFlavorList = new ArrayList<>(List.of("Coke", "Fanta", "Sprite", "Mountain Dew", "Tropicana", "Arizona Ice tea" ));
 
+    //CONSTRUCTORS
     public Drinks(String name, int quantity, String drinkSize, String drinkFlavor) {
         super(name,quantity);
         this.drinkSize = drinkSize;
         this.drinkFlavor = drinkFlavor;
     }
 
-    public Drinks(){};
+    public Drinks(){}
 
+    //GETTERS AND SETTERS
     public String getDrinkSize() {
         return drinkSize;
     }

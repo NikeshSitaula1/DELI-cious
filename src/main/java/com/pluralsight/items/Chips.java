@@ -2,23 +2,36 @@ package com.pluralsight.items;
 
 import com.pluralsight.checkout.Items;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Chips extends Items {
 
     private String chipsType;
 
+    //FIXED VALUES
+    private List<String> chipsTypeList = new ArrayList<>(List.of("Lays", "Cheetos", "Doritos" ));
 
+    //CONSTRUCTORS
     public Chips(String name, int quantity, String chipType) {
         super(name, quantity);
         this.chipsType = chipType;
     }
 
+    public Chips(){}
 
+
+    //GETTERS AND SETTERS
     public String getChipType() {
         return chipsType;
     }
 
     public void setChipType(String chipType) {
         this.chipsType = chipType;
+    }
+
+    public List<String> getChipsTypeList(){
+        return chipsTypeList;
     }
 
     @Override
