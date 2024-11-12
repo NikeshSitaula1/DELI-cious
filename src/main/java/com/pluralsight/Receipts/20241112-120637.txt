@@ -1,5 +1,0 @@
-Order Summary:
-Sandwich{, sandwichBread='Wheat', sandwichSize='4', Toppings='[]', isToasted='Yes', price= 0.0}
-
-Drink: Large, Lays, Total Price: $0.0
-Grand Total: $0.0

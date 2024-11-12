@@ -112,10 +112,10 @@ public class Sandwich extends Items {
     @Override
     public String toString() {
         return "Sandwich{" +
-                ", sandwichBread='" + sandwichBread + '\'' +
-                ", sandwichSize='" + sandwichSize + '\'' +
-                ", Toppings='" + toppingsList + '\'' +
-                ", isToasted='" + isToasted + '\'' +
+                ", sandwichBread='" + sandwichBread + '\'' +"\n" +
+                ", sandwichSize='" + sandwichSize + '\'' + "\n" +
+                ", Toppings='" + toppingsList + '\'' + "\n" +
+                ", isToasted='" + isToasted + '\'' + "\n" +
                 ", price= " + calculatePrice() +
                 '}';
     }

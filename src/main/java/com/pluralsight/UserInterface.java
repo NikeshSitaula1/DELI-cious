@@ -13,15 +13,14 @@ import java.util.List;
 public class UserInterface {
 
     private Orders orderList = new Orders();
-    private Sandwich sandwich = new Sandwich();
-    private Drinks drink = new Drinks();
-    private Chips chip = new Chips();
+
 
     //HOME SCREEN
     public void homeScreen() {
 
         String options = """
-                Please select from the following choices:
+                 🥪🥪 Welcome to DELI-cious!! 🥪🥪
+                 Please select from the following choices:
                 1 - New Order
                 0 - Exit
                 
@@ -31,7 +30,6 @@ public class UserInterface {
 
         do {
             try {
-                System.out.println("Welcome to DELI-cious!!");
                 selection = Console.PromptForInt(options);
                 switch (selection) {
                     case 1 -> orderScreen();
@@ -111,13 +109,14 @@ public class UserInterface {
 
     public void processCustomSandwich() {
 
+        Sandwich sandwich = new Sandwich();
         List<String> breadOptions = sandwich.getBreadOptions();
 
         //SANDWICH BREAD
         String sandwichBread;
         do{
             try{
-                System.out.println("Please select your bread: ");
+                System.out.println("\uD83C\uDF5E Please select your bread: ");
                 for (int i = 0; i < breadOptions.size(); i++){
                     System.out.println((i + 1) + ". " + breadOptions.get(i));
                 }
@@ -141,7 +140,6 @@ public class UserInterface {
             }
         }while(true);
 
-
         //SIZES
         String sandwichSize;
         do {
@@ -158,7 +156,7 @@ public class UserInterface {
         } while (true);
 
         //TOPPINGS
-        //processAddToppings();
+        processAddToppings(sandwich);
 
         //TOASTED
         String isToasted;
@@ -190,15 +188,99 @@ public class UserInterface {
     }
 
     ///ADD TOPPINGS
-    public void processAddToppings(){
+    public void processAddToppings(Sandwich sandwich){
 
-        Toppings toppingAdd = new Toppings();
+        Toppings topping = new Toppings();
+
+        boolean isExtra;
+
+        //FOR MEAT
+       do{
+           System.out.println("Choose a meat topping:");
+           List<String> meatOptions = topping.getMeatOptions();  // Get meat options list
+           for (int i = 0; i < meatOptions.size(); i++) {
+               System.out.println((i + 1) + " - " + meatOptions.get(i));
+           }
+           System.out.println("0 - Skip Meat");
+
+           int meatChoice = Console.PromptForInt(">> ");
+           if (meatChoice == 0) {
+               break;
+           }
+
+           if (meatChoice >= 1 && meatChoice <= meatOptions.size()) {
+               String selectedMeat = meatOptions.get(meatChoice - 1);
+
+               while (true) {
+                   String response = Console.PromptForString("Would you like extra " + selectedMeat + "? (Yes/No): ");
+                   if (response.equalsIgnoreCase("Yes") || response.equalsIgnoreCase("Y")) {
+                       isExtra = true;
+                       break;
+                   } else if (response.equalsIgnoreCase("No") || response.equalsIgnoreCase("N")) {
+                       isExtra = false;
+                       break;
+                   } else {
+                       System.out.println("Invalid selection. Please enter 'Yes' or 'No'.");
+                   }
+               }
+               Toppings meatTopping = new Toppings(selectedMeat, "Meat", isExtra);
+               sandwich.addTopping(meatTopping);
+               break; // Goes to the next topping option
+           } else {
+               System.out.println("Invalid selection. Please try again.");
+           }
+       }while (true);
+
+        //FOR CHEESE
+        do {
+            System.out.println("Choose a cheese topping:");
+            List<String> cheeseOptions = topping.getCheeseOptions();  // Get cheese options list
+            for (int i = 0; i < cheeseOptions.size(); i++) {
+                System.out.println((i + 1) + " - " + cheeseOptions.get(i));
+            }
+            System.out.println("0 - Skip Cheese");
+
+            int cheeseChoice = Console.PromptForInt(">> ");
+            if (cheeseChoice == 0) {
+                break;  // Skip cheese if the user chooses to
+            }
+
+            if (cheeseChoice >= 1 && cheeseChoice <= cheeseOptions.size()) {
+                String selectedCheese = cheeseOptions.get(cheeseChoice - 1);
+
+                while (true) {
+                    String response = Console.PromptForString("Would you like extra " + selectedCheese + "? (Yes/No): ");
+                    if (response.equalsIgnoreCase("Yes") || response.equalsIgnoreCase("Y")) {
+                        isExtra = true;
+                        break;
+                    } else if (response.equalsIgnoreCase("No") || response.equalsIgnoreCase("N")) {
+                        isExtra = false;
+                        break;
+                    } else {
+                        System.out.println("Invalid selection. Please enter 'Yes' or 'No'.");
+                    }
+                }
+                Toppings cheeseTopping = new Toppings(selectedCheese, "Cheese", isExtra);
+                sandwich.addTopping(cheeseTopping);
+                break;  // Goes to the next topping option
+            } else {
+                System.out.println("Invalid selection. Please try again.");
+            }
+        } while (true);
+
+        //FOR OTHER TOPPINGS
+
+        //FOR SAUCES
+
 
 
     }
 
+
     //ADD DRINKS
     public void processAddDrinks() {
+
+        Drinks drink = new Drinks();
 
         // DRINK FLAVOR
         List<String> drinkFlavorList = drink.getDrinkFlavorList();
@@ -280,6 +362,9 @@ public class UserInterface {
     //ADD CHIPS
     public void processAddChips() {
 
+        Chips chip = new Chips();
+
+        //CHIPS TYPE
         List<String> chipsTypeList = chip.getChipsTypeList();
         String chipsType;
 

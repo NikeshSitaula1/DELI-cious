@@ -1,0 +1,6 @@
+Order Summary:
+Sandwich{, sandwichBread='White Bread', sandwichSize='4', Toppings='[]', isToasted='Yes', price= 5.5}
+Sandwich{, sandwichBread='Wheat', sandwichSize='12', Toppings='[]', isToasted='No', price= 8.5}
+Drink{Size='Medium', Flavor='Fanta', Total Price= $2.5}
+Drink{Size='Small', Flavor='Sprite', Total Price= $2.0}
+Grand Total: $18.5

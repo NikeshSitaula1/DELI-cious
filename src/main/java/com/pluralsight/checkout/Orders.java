@@ -1,9 +1,5 @@
 package com.pluralsight.checkout;
 
-import com.pluralsight.items.Chips;
-import com.pluralsight.items.Drinks;
-import com.pluralsight.items.Sandwich;
-
 import java.util.ArrayList;
 import java.util.List;
 

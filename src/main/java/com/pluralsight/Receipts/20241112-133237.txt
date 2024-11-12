@@ -1,0 +1,6 @@
+Order Summary:
+Sandwich{, sandwichBread='Rye', sandwichSize='12', Toppings='[]', isToasted='No', price= 8.5}
+Sandwich{, sandwichBread='Rye', sandwichSize='12', Toppings='[]', isToasted='No', price= 8.5}
+Drink{Size='Large', Flavor='Fanta', Total Price= $3.0}
+Chips{Type='Lays', Total Price= $1.5}
+Grand Total: $21.5

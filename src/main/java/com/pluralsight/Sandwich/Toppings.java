@@ -18,7 +18,6 @@ public class Toppings {
                                                                         "Cucumbers", "Pickles", "Guacamole", "Mushrooms"));
     private final List<String> sauceOptions = new ArrayList<>(List.of("Mayo", "Mustard", "Ketchup", "Ranch", "Thousand Islands", "Vinaigrette"));
 
-
     private static final double costMeatSize4= 1.00, costMeatSize8= 2.00, costMeatSize12= 3.00;
     private static final double extraCostMeatSize4= 0.50, extraCostMeatSize8= 1.00, extraCostMeatSize12= 1.50;
     private static final double costCheeseSize4= 0.75, costCheeseSize8= 1.50, costCheeseSize12= 2.25;
@@ -70,6 +69,23 @@ public class Toppings {
         this.toppingIsExtra = toppingExtra;
     }
 
+    public List<String> getMeatOptions(){
+        return meatOptions;
+    }
+
+    public List<String> getCheeseOptions(){
+        return cheeseOptions;
+    }
+
+    public List<String> getRegularOptions(){
+        return regularOptions;
+    }
+
+    public List<String> getSauceOptions(){
+        return sauceOptions;
+    }
+
+
     public boolean validMeatOption(String toppingName){
         return meatOptions.contains(toppingName.toLowerCase().trim());
     }
@@ -85,7 +101,6 @@ public class Toppings {
     public boolean validSauceOptions(String toppingName){
         return sauceOptions.contains(toppingName.toLowerCase().trim());
     }
-
 
     public void toppingOption(String toppingName, String toppingType) {
         if (toppingType.equalsIgnoreCase("Meat") && !validMeatOption(toppingName)){

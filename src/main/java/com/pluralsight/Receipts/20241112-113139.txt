@@ -1,2 +1,0 @@
-Orders{itemList=[Sandwich{, sandwichBread='White Bread'sandwichSize='4', Toppings='[]', isToasted='Yes', price= 0.0}
-, Drinks{drinkSize='Medium', drinkFlavor='Lays'total price= 0.0'}]}
