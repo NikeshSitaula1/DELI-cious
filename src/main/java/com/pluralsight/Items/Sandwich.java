@@ -1,7 +1,7 @@
-package com.pluralsight.items;
+package com.pluralsight.Items;
 
 import com.pluralsight.Sandwich.Toppings;
-import com.pluralsight.checkout.Items;
+import com.pluralsight.Checkout.Items;
 
 import java.util.ArrayList;
 import java.util.List;

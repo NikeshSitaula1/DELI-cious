@@ -1,4 +1,4 @@
-package com.pluralsight.checkout;
+package com.pluralsight.Checkout;
 
 public abstract class Items {
 

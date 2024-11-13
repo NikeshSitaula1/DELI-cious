@@ -1,4 +1,4 @@
-package com.pluralsight.checkout;
+package com.pluralsight.Checkout;
 
 import java.util.ArrayList;
 import java.util.List;

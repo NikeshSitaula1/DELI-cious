@@ -1,0 +1,7 @@
+Order Summary:
+Sandwich{, sandwichBread='Wrap'
+, sandwichSize='4'
+, Toppings='[Topping: Bacon (Extra), Topping: Provolone, Topping: Mushrooms, Topping: Peppers, Topping: Ranch]'
+, isToasted='Yes'
+, price= 7.75}
+Grand Total: $7.75

@@ -32,6 +32,14 @@ public class Toppings {
         this.toppingIsExtra = toppingIsExtra;
     }
 
+    public Toppings(String toppingName, String toppingType) {
+        this.toppingName = toppingName;
+        this.toppingType = toppingType;
+        this.toppingIsPremium = toppingType.equalsIgnoreCase("Meat") || toppingType.equalsIgnoreCase("Cheese");
+    }
+
+
+
     public Toppings(){}
 
 

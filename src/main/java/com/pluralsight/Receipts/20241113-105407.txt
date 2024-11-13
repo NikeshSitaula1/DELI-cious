@@ -1,0 +1,15 @@
+Order Summary:
+Sandwich{, sandwichBread='White Bread'
+, sandwichSize='4'
+, Toppings='[Topping: Salami (Extra), Topping: Cheddar (Extra), Topping: Guacamole, Topping: Ranch, Topping: Thousand Islands]'
+, isToasted='Yes'
+, price= 8.05}
+Drink{Size='Large', Flavor='Mountain Dew', Total Price= $3.0}
+Chips{Type='Lays', Total Price= $1.5}
+Drink{Size='Large', Flavor='Mountain Dew', Total Price= $3.0}
+Sandwich{, sandwichBread='White Bread'
+, sandwichSize='12'
+, Toppings='[Topping: Bacon (Extra), Topping: American (Extra), Topping: Onions, Topping: Guacamole, Topping: Ranch, Topping: Mustard]'
+, isToasted='Yes'
+, price= 16.15}
+Grand Total: $31.7

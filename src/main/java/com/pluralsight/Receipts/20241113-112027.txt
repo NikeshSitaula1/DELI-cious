@@ -1,0 +1,14 @@
+Order Summary:
+Sandwich{, sandwichBread='White Bread'
+, sandwichSize='8'
+, Toppings='[Topping: Salami (Extra), Topping: Cheddar (Extra), Topping: Jalapenos, Topping: Peppers, Topping: Vinaigrette, Topping: Mustard, Topping: Ranch]'
+, isToasted='Yes'
+, price= 12.1}
+Drink{Size='Medium', Flavor='Sprite', Total Price= $2.5}
+Chips{Type='Lays', Total Price= $1.5}
+Sandwich{, sandwichBread='Wrap'
+, sandwichSize='12'
+, Toppings='[Topping: Bacon, Topping: Provolone, Topping: Pickles, Topping: Mushrooms, Topping: Thousand Islands]'
+, isToasted='No'
+, price= 13.75}
+Grand Total: $29.85
