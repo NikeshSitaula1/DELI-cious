@@ -113,7 +113,7 @@ public class UserInterface {
                     homeScreen(); // Return to the home screen after checkout
                     return;
 
-                } else if (selection == 3) {
+                } else if (selection == 2) {
                     //CANCEL ORDER GOES BACK TO HOME SCREEN
                     System.out.println("Order cancelled. Returning to home screen.");
                     homeScreen();
