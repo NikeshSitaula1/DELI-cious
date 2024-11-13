@@ -9,19 +9,19 @@ public class DrinksInterface {
     //ADD DRINKS
     public void processAddDrinks() {
 
-        Drinks drink = new Drinks();
-
-        // DRINK FLAVOR
-        List<String> drinkFlavorList = drink.getDrinkFlavorList();
         String drinkFlavor;
+        String drinkSize;
 
-        do{
-            try{
-                System.out.println("Select your drink from the menu option:");
+        // DRINK FLAVOR SELECTION
+        List<String> drinkFlavorList = new Drinks().getDrinkFlavorList();  //GET DRINK FLAVOR LIST
+
+        do {
+            try {
+                System.out.println("Select your drink flavor from the menu:");
                 for (int i = 0; i < drinkFlavorList.size(); i++) {
                     System.out.println((i + 1) + ". " + drinkFlavorList.get(i));
                 }
-                System.out.println("0. Cancel Order");
+                System.out.println("0 - Cancel Order");
 
                 int flavorChoice = Console.PromptForInt(">> ");
 
@@ -36,25 +36,19 @@ public class DrinksInterface {
                 } else {
                     System.out.println("Invalid selection. Please try again.");
                 }
-            }catch (Exception e){
-                System.out.println("Invalid selection. Please try again");
+            } catch (Exception e) {
+                System.out.println("Invalid selection. Please try again.");
             }
-        }while (true);
+        } while (true);
 
-        drink.setDrinkFlavor(drinkFlavor);
-        System.out.println(drinkFlavor + " added");
-
-
-        //DRINK SIZE
-        String drinkSize;
-
+        //DRINK SIZE SELECTION
         do {
             try {
                 System.out.println("Select drink size:");
-                System.out.println("1. Small");
-                System.out.println("2. Medium");
-                System.out.println("3. Large");
-                System.out.println("0. Cancel Order");
+                System.out.println("1 - Small");
+                System.out.println("2 - Medium");
+                System.out.println("3 - Large");
+                System.out.println("0 - Cancel Order");
 
                 int sizeChoice = Console.PromptForInt(">> ");
 
@@ -78,12 +72,9 @@ public class DrinksInterface {
             }
         } while (true);
 
-        drink.setDrinkSize(drinkSize);
-        System.out.println("Drink size: " + drinkSize);
-
-
-        //ADD DRINKS IN THE ORDER LIST
+        //CREATE DRINKS WITH FLAVOR AND SIZE THEN ADDS TO ORDER
+        Drinks drink = new Drinks(drinkFlavor, drinkSize);
         orderList.addItems(drink);
-        System.out.println("Drinks added successfully!!");
+        System.out.println(drinkFlavor + " (" + drinkSize + ") added to order.");
     }
 }

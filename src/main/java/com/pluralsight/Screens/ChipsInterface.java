@@ -11,14 +11,13 @@ public class ChipsInterface {
     //ADD CHIPS
     public void processAddChips() {
 
-        Chips chip = new Chips();
-
-        //CHIPS TYPE
-        List<String> chipsTypeList = chip.getChipsTypeList();
         String chipsType;
 
-        do{
-            try{
+        //CHIPS TYPE SELECTION
+        List<String> chipsTypeList = new Chips().getChipsTypeList();  // Get list of available chips types
+
+        do {
+            try {
                 System.out.println("Select Chips from the menu option:");
                 for (int i = 0; i < chipsTypeList.size(); i++) {
                     System.out.println((i + 1) + ". " + chipsTypeList.get(i));
@@ -33,18 +32,18 @@ public class ChipsInterface {
                 } else if (chipsChoice >= 1 && chipsChoice <= chipsTypeList.size()) {
                     chipsType = chipsTypeList.get(chipsChoice - 1);
                     System.out.println("You selected: " + chipsType);
+
+                    //CREATE CHIPS WITH THE SELECTED TYPE
+                    Chips chip = new Chips(chipsType);
+                    orderList.addItems(chip);  // Add the chip to the order list
+                    System.out.println("Chip successfully added.");
                     break;
                 } else {
                     System.out.println("Invalid selection. Please try again.");
                 }
-            }catch (Exception e){
-                System.out.println("Invalid selection. Please try again");
+            } catch (Exception e) {
+                System.out.println("Invalid selection. Please try again.");
             }
-        }while (true);
-
-        chip.setChipType(chipsType);
-
-        orderList.addItems(chip);
-        System.out.println("Chip successfully added");
+        } while (true);
     }
 }

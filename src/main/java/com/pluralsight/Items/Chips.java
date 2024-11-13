@@ -19,6 +19,10 @@ public class Chips extends Items {
         this.chipsType = chipType;
     }
 
+    public Chips(String chipsType) {
+        this.chipsType = chipsType;
+    }
+
     public Chips(){}
 
 

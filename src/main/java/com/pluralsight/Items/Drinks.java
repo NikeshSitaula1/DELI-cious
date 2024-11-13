@@ -21,6 +21,11 @@ public class Drinks extends Items {
         this.drinkFlavor = drinkFlavor;
     }
 
+    public Drinks(String drinkFlavor, String drinkSize) {
+        this.drinkFlavor = drinkFlavor;
+        this.drinkSize = drinkSize;
+    }
+
     public Drinks(){}
 
     //GETTERS AND SETTERS
