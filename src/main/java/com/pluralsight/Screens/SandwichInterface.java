@@ -39,22 +39,19 @@ public class SandwichInterface {
 
     // CUSTOM SANDWICH PROCESSING
     public void processCustomSandwich() {
-
         Sandwich sandwich = new Sandwich();
         List<String> breadOptions = sandwich.getBreadOptions();
+
+        //SANDWICH BREAD
         String sandwichBread;
-        String sandwichSize;
-
-
-        // SANDWICH BREAD
-        do {
-            try {
+        do{
+            try{
                 System.out.println("""
                 ==========================================
-                       🍞 Please select your bread 🍞
+                       🍞 Please select your bread:
                 ==========================================""");
-                for (int i = 0; i < breadOptions.size(); i++) {
-                    System.out.printf("   %d - %s%n", i + 1, breadOptions.get(i));
+                for (int i = 0; i < breadOptions.size(); i++){
+                    System.out.println((i + 1) + ". " + breadOptions.get(i));
                 }
                 System.out.println("""
                    0 - Cancel Order
@@ -67,36 +64,36 @@ public class SandwichInterface {
                     return;
                 } else if (breadChoice >= 1 && breadChoice <= breadOptions.size()) {
                     sandwichBread = breadOptions.get(breadChoice - 1);
+                    sandwich.setSandwichBread(sandwichBread);
                     System.out.println("You selected: " + sandwichBread);
                     break;
                 } else {
                     System.out.println("Invalid selection. Please try again.");
                 }
-            } catch (Exception e) {
+            }catch (Exception e){
                 System.out.println("Invalid selection. Please try again.");
             }
-        } while (true);
+        }while(true);
 
-        // SIZE SELECTION
+        //SIZES
+        String sandwichSize;
         do {
             sandwichSize = Console.PromptForString("Choose Sandwich Size: (4\", 8\", 12\"): ");
-            if (sandwichSize.equals("4") || sandwichSize.equals("8") || sandwichSize.equals("12")) {
+            sandwich.setSandwichSize(sandwichSize);
+
+            // Check if the size was set successfully
+            if (sandwichSize.equals(sandwich.getSandwichSize())) {
                 System.out.println("You selected: " + sandwichSize);
                 break;
             } else {
-                System.out.println("Invalid size. Please enter 4\", 8\", or 12\".");
+                System.out.println("Please try again.");
             }
         } while (true);
 
-        // Create the Sandwich object with both bread and size, then add to order
-
-        orderList.addItems(sandwich);
-        System.out.println("Sandwich added successfully!");
-
-        // ADD TOPPINGS
+        //TOPPINGS
         processAddToppings(sandwich);
 
-        // TOASTED OPTION
+        //TOASTED
         String isToasted;
         do {
             isToasted = Console.PromptForString("Would you like the sandwich toasted? (Yes/No): ");
@@ -113,10 +110,11 @@ public class SandwichInterface {
             }
         } while (true);
 
-        // ADD SANDWICH TO ORDER LIST
+        //ADD SANDWICH TO ORDER LIST
         orderList.addItems(sandwich);
-        System.out.println("Sandwich added successfully!");
+        System.out.println("Sandwich added successfully!!");
     }
+
 
     public void processSignatureSandwich() {
         // Implementation for selecting a signature sandwich
