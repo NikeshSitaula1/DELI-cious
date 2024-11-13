@@ -1,0 +1,14 @@
+Order Summary:
+Sandwich{, sandwichBread='White Bread'
+, sandwichSize='4'
+, Toppings='[Topping: Roast beef, Topping: Cheddar, Topping: Onions, Topping: Onions, Topping: Jalapenos, Topping: Onions, Topping: Ranch, Topping: Thousand Islands]'
+, isToasted='Yes'
+, price= 7.25}
+Drink{Size='Medium', Flavor='Sprite', Total Price= $2.5}
+Chips{Type='Cheetos', Total Price= $1.5}
+Sandwich{, sandwichBread='Wheat'
+, sandwichSize='4'
+, Toppings='[Topping: Roast beef, Topping: Cheddar, Topping: Onions, Topping: Peppers, Topping: Ketchup]'
+, isToasted='Yes'
+, price= 7.25}
+Grand Total: $18.5

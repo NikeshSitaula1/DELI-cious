@@ -1,0 +1,8 @@
+Order Summary:
+Sandwich{, sandwichBread='White Bread'
+, sandwichSize='4'
+, Toppings='[Topping: Steak, Topping: American, Topping: Onions, Topping: Ketchup]'
+, isToasted='Yes'
+, price= 7.25}
+Drink{Size='Large', Flavor='Sprite', Total Price= $3.0}
+Grand Total: $10.25

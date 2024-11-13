@@ -39,13 +39,19 @@ public class Sandwich extends Items {
         this.sandwichSize = sandwichSize;
     }
 
+    public Sandwich(String sandwichBread, String sandwichSize, String isToasted) {
+        this.sandwichBread = sandwichBread;
+        this.sandwichSize = sandwichSize;
+        this.isToasted = isToasted;
+    }
+
     public Sandwich(String sandwichBread, String sandwichSize, List<Toppings> toppingsList, String isToasted) {
         this.sandwichBread = sandwichBread;
         this.sandwichSize = sandwichSize;
         this.toppingsList = new ArrayList<>(toppingsList);
         this.isToasted = isToasted;
-
     }
+
 
     public Sandwich(){}
 
