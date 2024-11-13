@@ -1,0 +1,7 @@
+Order Summary:
+Sandwich{, sandwichBread='White Bread'
+, sandwichSize='8'
+, Toppings='[Topping: Ham, Topping: Swiss, Topping: Peppers, Topping: Peppers, Topping: Onions]'
+, isToasted='Yes'
+, price= 10.5}
+Grand Total: $10.5

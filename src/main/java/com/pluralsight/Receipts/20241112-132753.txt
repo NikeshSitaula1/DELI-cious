@@ -1,6 +1,0 @@
-Order Summary:
-Sandwich{, sandwichBread='Wheat', sandwichSize='4', Toppings='[]', isToasted='No', price= 5.5}
-Sandwich{, sandwichBread='Wheat', sandwichSize='4', Toppings='[]', isToasted='No', price= 5.5}
-Drink{Size='Large', Flavor='Sprite', Total Price= $3.0}
-Chips{Type='Doritos', Total Price= $1.5}
-Grand Total: $15.5

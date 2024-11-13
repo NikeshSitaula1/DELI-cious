@@ -1,28 +1,31 @@
 package com.pluralsight.Screens;
 
 import com.pluralsight.Items.Chips;
-import com.pluralsight.util.Console;
+import com.pluralsight.Util.Console;
 
 import java.util.List;
 
 import static com.pluralsight.Screens.UserInterface.orderList;
 
 public class ChipsInterface {
-    //ADD CHIPS
+    // ADD CHIPS
     public void processAddChips() {
-
         String chipsType;
 
-        //CHIPS TYPE SELECTION
+        // CHIPS TYPE SELECTION
         List<String> chipsTypeList = new Chips().getChipsTypeList();  // Get list of available chips types
 
         do {
             try {
-                System.out.println("Select Chips from the menu option:");
+                System.out.println("==========================================");
+                System.out.println("        🥔 Select Your Chips 🥔           ");
+                System.out.println("==========================================");
+
                 for (int i = 0; i < chipsTypeList.size(); i++) {
-                    System.out.println((i + 1) + ". " + chipsTypeList.get(i));
+                    System.out.println("   " + (i + 1) + " - " + chipsTypeList.get(i));
                 }
-                System.out.println("0. Cancel Order");
+                System.out.println("   0 - Cancel Order");
+                System.out.println("==========================================");
 
                 int chipsChoice = Console.PromptForInt(">> ");
 
@@ -33,10 +36,10 @@ public class ChipsInterface {
                     chipsType = chipsTypeList.get(chipsChoice - 1);
                     System.out.println("You selected: " + chipsType);
 
-                    //CREATE CHIPS WITH THE SELECTED TYPE
+                    // CREATE CHIPS WITH THE SELECTED TYPE
                     Chips chip = new Chips(chipsType);
                     orderList.addItems(chip);  // Add the chip to the order list
-                    System.out.println("Chip successfully added.");
+                    System.out.println("Chips successfully added to your order.");
                     break;
                 } else {
                     System.out.println("Invalid selection. Please try again.");

@@ -2,25 +2,24 @@ package com.pluralsight.Screens;
 
 import com.pluralsight.FileManager.OrderFileManager;
 import com.pluralsight.Checkout.Orders;
-import com.pluralsight.Items.Chips;
-import com.pluralsight.util.Console;
-
-import java.util.List;
+import com.pluralsight.Util.Console;
 
 public class UserInterface {
 
     static Orders orderList = new Orders();
 
-    //HOME SCREEN
+    // HOME SCREEN
     public void homeScreen() {
 
         String options = """
-                 🥪🥪 Welcome to DELI-cious!! 🥪🥪
-                 Please select from the following choices:
-                1 - New Order
-                0 - Exit
-                
-                >>\s""";
+         =================================================
+                🥪🥪 Welcome to DELI-cious!! 🥪🥪
+         =================================================
+            Please select from the following choices:
+            1 - New Order
+            0 - Exit
+         =================================================
+         >>\s""";
 
         int selection;
 
@@ -32,25 +31,28 @@ public class UserInterface {
                     case 0 -> System.exit(0);
                     default -> System.out.println("Invalid entry. Please try again.");
                 }
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Invalid entry. Please try again." + e.getMessage());
             }
         } while (true);
     }
 
 
-    //ORDER SCREEN
+    // ORDER SCREEN
     public void orderScreen() {
 
         String options = """
-                Please select from the following choices:
-                1 - Add Sandwich
-                2 - Add Drink
-                3 - Add Chips
-                4 - Checkout
-                0 - Cancel Order
-                
-                >>\s""";
+        =================================================
+                         Order Menu
+        =================================================
+            Please select from the following choices:
+            1 - Add Sandwich
+            2 - Add Drink
+            3 - Add Chips
+            4 - Checkout
+            0 - Cancel Order
+        =================================================
+        >>\s""";
 
         int orderSelection;
 
@@ -73,15 +75,61 @@ public class UserInterface {
         } while (true);
     }
 
-    //CHECKOUT
-    public void processCheckout(){
+    // CHECKOUT
+    public void processCheckout() {
 
+        System.out.println("""
+                
+                =================================================
+                               ORDER SUMMARY
+                =================================================
+                """);
         System.out.println(orderList.toString());
 
-        // Write order summary to receipt file
-        OrderFileManager.writeOrderReceipt(orderList.toString());
 
 
+        String options = """
+        =================================================
+                        CHECKOUT
+        =================================================
+            Please select from the following choices:
+            1 - Confirm Checkout
+            2 - Cancel Order
+            0 - Back
+        =================================================
+        >>\s""";
+
+
+        int selection;
+        do {
+            try {
+                selection = Console.PromptForInt(options);
+
+                if (selection == 1) {
+                    //CONFIRM CHECKOUT
+                    OrderFileManager.writeOrderReceipt(orderList.toString());
+                    System.out.println("Order confirmed and receipt saved.");
+                    System.out.println("Thank you for your order!");
+                    homeScreen(); // Return to the home screen after checkout
+                    return;
+
+                } else if (selection == 3) {
+                    //CANCEL ORDER GOES BACK TO HOME SCREEN
+                    System.out.println("Order cancelled. Returning to home screen.");
+                    homeScreen();
+                    return;
+
+                } else if (selection == 0) {
+                    //GO BACK TO ORDER SCREEN
+                    return;
+
+                } else {
+                    System.out.println("Invalid selection. Please try again.");
+                }
+
+            } catch (Exception e) {
+                System.out.println("Invalid selection. Please try again.");
+            }
+        } while (true);
     }
-
 }
