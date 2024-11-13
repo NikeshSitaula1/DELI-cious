@@ -103,9 +103,6 @@ public class Toppings {
 
     }
 
-    // TODO DO IF FOR EXTRA MEAT, EXTRA CHEESE AND EXTRA MEAT AND CHEESE
-
-
     public double calculateMeatCost(String sandwichSize){
         return switch (sandwichSize) {
             case "4" -> toppingIsExtra ? costMeatSize4 + extraCostMeatSize4 : costMeatSize4;  // 1.00 + 0.5 for extra
