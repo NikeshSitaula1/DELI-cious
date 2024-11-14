@@ -71,8 +71,7 @@ public class Drinks extends Items {
     //TO-STRING
     @Override
     public String toString() {
-        return "Drink: " + drinkFlavor + " (" + drinkSize + ") - $" + calculatePrice();
+        return "Drink: " + drinkFlavor + " (" + drinkSize + ") - $" + String.format("%.2f", calculatePrice());
+
     }
-
-
 }

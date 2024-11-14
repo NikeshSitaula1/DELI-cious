@@ -40,8 +40,8 @@ public class ToppingsInterface {
 
                     String selectedMeat = meatOptions.get(meatChoice - 1);
 
-                    isExtra = Console.PromptForString("Would you like extra " + selectedMeat + "? (Yes/No): ")
-                            .equalsIgnoreCase("Yes");
+                    String extraMeatChoice =  Console.PromptForString("Would you like extra " + selectedMeat + "? (Yes/No): ");
+                    isExtra = extraMeatChoice.equalsIgnoreCase("Yes") || extraMeatChoice.equalsIgnoreCase("Y");
 
                     toppingsList.add(new Toppings(selectedMeat, "Meat", isExtra));
                     break;
@@ -77,8 +77,8 @@ public class ToppingsInterface {
                 if (cheeseChoice >= 1 && cheeseChoice <= cheeseOptions.size()) {
                     String selectedCheese = cheeseOptions.get(cheeseChoice - 1);
 
-                    isExtra = Console.PromptForString("Would you like extra " + selectedCheese + "? (Yes/No): ")
-                            .equalsIgnoreCase("Yes");
+                    String extraCheeseChoice =  Console.PromptForString("Would you like extra " + selectedCheese + "? (Yes/No): ");
+                    isExtra = extraCheeseChoice.equalsIgnoreCase("Yes") || extraCheeseChoice.equalsIgnoreCase("Y");
 
                     toppingsList.add(new Toppings(selectedCheese, "Cheese", isExtra));
                     break;

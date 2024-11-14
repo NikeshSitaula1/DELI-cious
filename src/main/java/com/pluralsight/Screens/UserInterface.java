@@ -111,7 +111,7 @@ public class UserInterface {
                     //WRITES ORDER LISTS INTO A FILE AFTER TURNING IT INTO STRING
                     OrderFileManager.writeOrderReceipt(orderList.toString());
                     System.out.println("Order confirmed and receipt saved.");
-                    System.out.println("Thank you for your order!");
+                    System.out.println("Thank you for your purchase!!");
                     orderList.clearOrder();
                     homeScreen(); //RETURN TO HOME SCREEN AFTER CHECKOUT
                     return;

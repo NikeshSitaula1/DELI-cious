@@ -16,7 +16,7 @@ public class SandwichInterface {
 
         String options = """
         =================================================
-        Please select from the following choices:
+            Please select from the following choices:
             1 - Make your own Custom Sandwich
             2 - Choose one of our Signature Sandwiches
             0 - Cancel Order
@@ -84,7 +84,13 @@ public class SandwichInterface {
 
         //SANDWICH SIZE SELECTION
         do {
-            sandwichSize = Console.PromptForString("Choose Sandwich Size: (4\" ($5.50), 8\" ($7.00), 12\" ($8.50)): ");
+            sandwichSize = Console.PromptForString("""
+                        Choose Sandwich Size:
+                        4.  4" ($5.50)
+                        8.  8" ($7.00)
+                        12. 12"($8.50))
+                    ==========================================
+                    >>\s""");
             if (sandwichSize.equals("4") || sandwichSize.equals("8") || sandwichSize.equals("12")) {
                 System.out.println("You selected: " + sandwichSize);
                 break;

@@ -1,0 +1,17 @@
+Receipt:
+Date: 2024/11/14 17:56:53
+-----------------------------------
+Sandwich: Custom Sandwich
+  Size: 12
+  Bread: Wheat
+  Toasted: Yes
+  Toppings:
+    - Ham ($1.5) (Extra)
+    - Provolone ($1.05) (Extra)
+    - Tomatoes ($0.0)
+  Total: $16.15
+Drink: Mountain Dew (Large) - $3.00
+Chips: Cheetos Hot - $1.50
+-----------------------------------
+Total: $20.65
+-----------------------------------

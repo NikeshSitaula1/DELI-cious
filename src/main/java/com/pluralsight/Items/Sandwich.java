@@ -123,7 +123,7 @@ public class Sandwich extends Items {
     //TO STRING TO OUTPUT
     @Override
     public String toString() {
-        StringBuilder sandwichDescription = new StringBuilder("Item: Custom Sandwich\n");
+        StringBuilder sandwichDescription = new StringBuilder("Sandwich: Custom Sandwich\n");
         sandwichDescription.append("  Size: ").append(sandwichSize).append("\n")
                 .append("  Bread: ").append(sandwichBread).append("\n")
                 .append("  Toasted: ").append(isToasted).append("\n")
@@ -135,7 +135,7 @@ public class Sandwich extends Items {
         }
 
         double sandwichPrice = calculatePrice();
-        sandwichDescription.append("  Total: $").append(sandwichPrice);
+        sandwichDescription.append("  Total: $").append(String.format("%.2f",sandwichPrice));
         return sandwichDescription.toString();
     }
 }

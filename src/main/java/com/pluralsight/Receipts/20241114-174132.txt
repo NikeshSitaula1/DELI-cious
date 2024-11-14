@@ -1,0 +1,29 @@
+Receipt:
+Date: 2024/11/14 17:41:32
+-----------------------------
+Sandwich: Custom Sandwich
+  Size: 12
+  Bread: Wrap
+  Toasted: Yes
+  Toppings:
+    - Salami ($1.5) (Extra)
+    - Swiss ($1.05) (Extra)
+    - Onions ($0.0)
+    - Ranch ($0.0)
+  Total: $16.15
+Sandwich: BLT
+  Size: 8
+  Bread: white bread
+  Toasted: yes
+  Toppings:
+    - Bacon ($1.0)
+    - Cheddar ($0.75)
+    - Lettuce ($0.0)
+    - Tomato ($0.0)
+    - Ranch ($0.0)
+  Total: $10.50
+Drink: Pepsi (Large) - $3.00
+Chips: Doritos Cool Ranch - $1.50
+-----------------------------
+Total: $31.15
+-----------------------------

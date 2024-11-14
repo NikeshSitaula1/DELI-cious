@@ -13,21 +13,23 @@ public class Orders {
 
     private List<Items> itemList = new ArrayList<>();
 
+    //ADD ITEMS
     public void addItems(Items items){
         itemList.add(items);
     }
 
+    //CLEAR ITEMS IN THE ORDER
     public void clearOrder() {
         itemList.clear();
     }
 
+    //TOTAL CALCULATION
     public double calculateTotalPrice(){
         double orderTotalPrice = 0;
 
         for (Items items : itemList){
             orderTotalPrice += items.calculatePrice();
         }
-
         return orderTotalPrice;
     }
 
@@ -41,7 +43,7 @@ public class Orders {
 
         //RECEIPT HEADER, ADDS CURRENT DATE AND TIME
         StringBuilder receipt = new StringBuilder("Receipt:\nDate: ").append(formattedDateTime).append("\n");
-        receipt.append("-----------------------------\n");
+        receipt.append("-----------------------------------\n");
 
         //SEPARATING ITEMS BY TYPE
         List<Items> sandwiches = new ArrayList<>();
@@ -75,8 +77,9 @@ public class Orders {
         }
 
         //ADDS TOTAL PRICE
-        receipt.append("-----------------------------\n")
-                .append("Total: $").append(String.format("%.2f", calculateTotalPrice()));
+        receipt.append("-----------------------------------\n")
+                .append("Total: $").append(String.format("%.2f", calculateTotalPrice()))
+                .append("\n-----------------------------------");
 
         return receipt.toString();
     }

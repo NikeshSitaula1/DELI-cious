@@ -41,10 +41,11 @@ public class SignatureSandwiches extends Sandwich {
                                                 "white bread","8", "yes", phillyTopping);
     }
 
+    //TO-STRING
     @Override
     public String toString() {
         //CALLING SANDWICH TO-STRING BUT CHANGING NAME
         String baseDescription = super.toString();
-        return baseDescription.replace("Item: Custom Sandwich", "Item: " + getName());
+        return baseDescription.replace("Sandwich: Custom Sandwich", "Sandwich: " + getName());
     }
 }

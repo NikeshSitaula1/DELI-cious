@@ -10,7 +10,7 @@ public class Chips extends Items {
     private String chipsType;
 
     //FIXED VALUES
-    private List<String> chipsTypeList = new ArrayList<>(List.of("Lays", "Cheetos", "Doritos"));
+    private List<String> chipsTypeList = new ArrayList<>(List.of("Lays Original", "Cheetos Hot", "Doritos Cool Ranch"));
     private static final double chipsPrice = 1.5;
 
     //CONSTRUCTORS
@@ -49,7 +49,7 @@ public class Chips extends Items {
     //TO-STRING
     @Override
     public String toString() {
-        return "Chips: " + chipsType + " - $" + calculatePrice();
+        return "Chips: " + chipsType + " - $" + String.format("%.2f", calculatePrice());
     }
 
 }
