@@ -11,7 +11,7 @@ public class DrinksInterface {
         String drinkFlavor;
         String drinkSize;
 
-        // DRINK FLAVOR SELECTION
+        //DRINK FLAVOR SELECTION
         List<String> drinkFlavorList = new Drinks().getDrinkFlavorList();  //GET DRINK FLAVOR LIST
 
         do {
@@ -44,7 +44,7 @@ public class DrinksInterface {
             }
         } while (true);
 
-        // DRINK SIZE SELECTION
+        //DRINK SIZE SELECTION
         do {
             try {
                 System.out.println("""
@@ -79,7 +79,7 @@ public class DrinksInterface {
             }
         } while (true);
 
-        // CREATE DRINKS WITH FLAVOR AND SIZE THEN ADD TO ORDER
+        //CREATE DRINKS WITH FLAVOR AND SIZE THEN ADD TO ORDER
         Drinks drink = new Drinks(drinkFlavor, drinkSize);
         orderList.addItems(drink);
         System.out.println(drinkFlavor + " (" + drinkSize + ") added to order.");

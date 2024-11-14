@@ -8,11 +8,11 @@ import java.util.List;
 import static com.pluralsight.Screens.UserInterface.orderList;
 
 public class ChipsInterface {
-    // ADD CHIPS
+    //ADD CHIPS
     public void processAddChips() {
         String chipsType;
 
-        // CHIPS TYPE SELECTION
+        //CHIPS TYPE SELECTION
         List<String> chipsTypeList = new Chips().getChipsTypeList();  // Get list of available chips types
 
         do {

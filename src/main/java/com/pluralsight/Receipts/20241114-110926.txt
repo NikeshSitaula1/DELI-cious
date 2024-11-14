@@ -1,0 +1,26 @@
+Receipt:
+Date: 2024/11/14 11:09:26
+-----------------------------
+Item: Custom Sandwich
+  Size: 8 "
+  Bread: white bread
+  Toasted: yes
+  Toppings:
+    - Bacon ($1.0)
+    - Cheddar ($0.75)
+    - Lettuce ($0.0)
+    - Tomato ($0.0)
+    - Ranch ($0.0)
+  Total: $0.0
+Item: Custom Sandwich
+  Size: 8 "
+  Bread: white bread
+  Toasted: yes
+  Toppings:
+    - Steak ($1.0)
+    - American Cheese ($0.75)
+    - Peppers ($0.0)
+    - Mayo ($0.0)
+  Total: $0.0
+-----------------------------
+Total: $0.0

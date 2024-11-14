@@ -12,18 +12,18 @@ public class Console {
     // Method to prompt a String input
     public static String PromptForString(String prompt){
         System.out.print(prompt);
-        return scanner.nextLine();
+        return scanner.nextLine().trim();
     }
 
     // Method to prompt a String input without asking prompt
     public static String PromptForString(){
-        return scanner.nextLine();
+        return scanner.nextLine().trim();
     }
 
     //Method to prompt a Boolean input
     public static boolean PromptForYesNo(String prompt){
         System.out.print(prompt + "( Y for Yes, N for No ): ");
-        String boolInput = scanner.nextLine();
+        String boolInput = scanner.nextLine().trim();
 
         return
                 (

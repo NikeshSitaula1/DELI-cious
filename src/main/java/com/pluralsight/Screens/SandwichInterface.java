@@ -1,6 +1,7 @@
 package com.pluralsight.Screens;
 
 import com.pluralsight.Items.Sandwich;
+import com.pluralsight.Sandwich.SignatureSandwiches;
 import com.pluralsight.Sandwich.Toppings;
 import com.pluralsight.Util.Console;
 
@@ -54,9 +55,11 @@ public class SandwichInterface {
             ==========================================
                    🍞 Please select your bread 🍞
             ==========================================""");
+
                 for (int i = 0; i < breadOptions.size(); i++) {
                     System.out.printf("   %d - %s%n", i + 1, breadOptions.get(i));
                 }
+
                 System.out.println("""
                0 - Cancel Order
             ==========================================""");
@@ -78,7 +81,7 @@ public class SandwichInterface {
             }
         } while (true);
 
-        // SANDWICH SIZE SELECTION
+        //SANDWICH SIZE SELECTION
         do {
             sandwichSize = Console.PromptForString("Choose Sandwich Size: (4\", 8\", 12\"): ");
             if (sandwichSize.equals("4") || sandwichSize.equals("8") || sandwichSize.equals("12")) {
@@ -89,10 +92,9 @@ public class SandwichInterface {
             }
         } while (true);
 
-        // ADD TOPPINGS
+        //ADD TOPPINGS
         new ToppingsInterface().processAddToppings(toppingsList);
-
-        // TOASTED OPTION SELECTION
+        //TOASTED OPTION SELECTION
         do {
             isToasted = Console.PromptForString("Would you like the sandwich toasted? (Yes/No): ");
             if (isToasted.equalsIgnoreCase("Yes") || isToasted.equalsIgnoreCase("y")) {
@@ -108,16 +110,48 @@ public class SandwichInterface {
             }
         } while (true);
 
-        // Create the Sandwich object with all selections
+        //CREATE SANDWICH OBJECT THAT WILL SAVE THE VALUES IN THE CONSTRUCTOR
         Sandwich sandwich = new Sandwich(sandwichBread, sandwichSize, toppingsList, isToasted);
 
-        // ADD SANDWICH TO ORDER LIST
+        //ADD SANDWICH TO ORDER LIST
         orderList.addItems(sandwich);
         System.out.println("Sandwich added successfully!");
     }
 
 
     public void processSignatureSandwich() {
-        // Implementation for selecting a signature sandwich
+        String options = """
+        =================================================
+        Please choose of the Signature sandwiches:
+            1 - BLT
+            2 - Philly Cheese Steak
+            0 - Cancel Order
+        =================================================
+        >>\s""";
+
+        int signatureSandwichSelection;
+
+        try {
+            signatureSandwichSelection = Console.PromptForInt(options);
+            if (signatureSandwichSelection == 1) {
+                SignatureSandwiches blt = SignatureSandwiches.createBLT();
+                orderList.addItems(blt);  //ADDED BLT TO ORDER
+                System.out.println("BLT added to your order.");
+
+            } else if (signatureSandwichSelection == 2) {
+                SignatureSandwiches phillyCheeseSteak = SignatureSandwiches.createPhillyCheeseSteak();
+                orderList.addItems(phillyCheeseSteak);  //ADD PHILLY CHEESE STEAK TO ORDER
+                System.out.println("Philly Cheese Steak added to your order.");
+
+            } else if (signatureSandwichSelection == 0) {
+                System.out.println("Returning to previous menu.");
+                return;
+
+            } else {
+                System.out.println("Invalid entry. Please try again.");
+            }
+        } catch (Exception e) {
+            System.out.println("Invalid entry. Please try again." + e.getMessage());
+        }
     }
 }

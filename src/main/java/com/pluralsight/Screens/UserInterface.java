@@ -8,7 +8,7 @@ public class UserInterface {
 
     static Orders orderList = new Orders();
 
-    // HOME SCREEN
+    //HOME SCREEN
     public void homeScreen() {
 
         String options = """
@@ -76,7 +76,7 @@ public class UserInterface {
         } while (true);
     }
 
-    // CHECKOUT
+    //CHECKOUT
     public void processCheckout() {
 
         System.out.println("""
@@ -112,7 +112,7 @@ public class UserInterface {
                     System.out.println("Order confirmed and receipt saved.");
                     System.out.println("Thank you for your order!");
                     orderList.clearOrder();
-                    homeScreen(); // Return to the home screen after checkout
+                    homeScreen(); //RETURN TO HOME SCREEN AFTER CHECKOUT
                     return;
 
                 } else if (selection == 2) {

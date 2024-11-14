@@ -19,11 +19,13 @@ public class ToppingsInterface {
             ==========================================
                    Choose a meat topping:
             ==========================================""");
+
                 List<String> meatOptions = topping.getMeatOptions();
 
                 for (int i = 0; i < meatOptions.size(); i++) {
                     System.out.printf("   %d - %s%n", i + 1, meatOptions.get(i));
                 }
+
                 System.out.println("""
                0 - Skip Meat
             ==========================================""");
@@ -35,6 +37,7 @@ public class ToppingsInterface {
                 }
 
                 if (meatChoice >= 1 && meatChoice <= meatOptions.size()) {
+
                     String selectedMeat = meatOptions.get(meatChoice - 1);
 
                     isExtra = Console.PromptForString("Would you like extra " + selectedMeat + "? (Yes/No): ")

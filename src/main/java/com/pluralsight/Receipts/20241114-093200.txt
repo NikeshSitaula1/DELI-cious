@@ -1,0 +1,28 @@
+Receipt:
+Date: 2024/11/14 09:32:00
+-----------------------------
+Item: Custom Sandwich
+  Size: 4
+  Bread: White Bread
+  Toasted: Yes
+  Toppings:
+    - Salami ($1.0)
+    - Cheddar ($0.75)
+    - Onions ($0.0)
+    - Ketchup ($0.0)
+    - Mustard ($0.0)
+    - Thousand Islands ($0.0)
+    - Vinaigrette ($0.0)
+  Total: $7.25
+Item: Custom Sandwich
+  Size: 12
+  Bread: White Bread
+  Toasted: No
+  Toppings:
+    - Salami ($1.0)
+    - Cucumbers ($0.0)
+  Total: $11.5
+Drink: Fanta (Large) - $3.0
+Chips: Lays - $1.5
+-----------------------------
+Total: $23.25

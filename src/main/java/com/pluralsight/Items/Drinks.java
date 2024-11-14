@@ -11,7 +11,7 @@ public class Drinks extends Items {
     private String drinkFlavor;
 
     //FIXED VALUES
-    private List<String> drinkFlavorList = new ArrayList<>(List.of("Coke", "Fanta", "Sprite", "Mountain Dew", "Tropicana", "Arizona Ice tea" ));
+    private List<String> drinkFlavorList = new ArrayList<>(List.of("Coke", "Pepsi", "Sprite", "Mountain Dew", "Tropicana", "Arizona Ice tea" ));
     private static final double drinksSmall = 2.0, drinksMedium = 2.50 , drinksLarge = 3.0;
 
     //CONSTRUCTORS

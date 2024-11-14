@@ -139,6 +139,4 @@ public class Sandwich extends Items {
         sandwichDescription.append("  Total: $").append(sandwichPrice);
         return sandwichDescription.toString();
     }
-
-
 }

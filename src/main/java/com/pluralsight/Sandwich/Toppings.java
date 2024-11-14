@@ -38,10 +38,7 @@ public class Toppings {
         this.toppingIsPremium = toppingType.equalsIgnoreCase("Meat") || toppingType.equalsIgnoreCase("Cheese");
     }
 
-
-
     public Toppings(){}
-
 
 
     // GETTERS AND SETTERS
