@@ -125,13 +125,20 @@ public class Sandwich extends Items {
 
     @Override
     public String toString() {
-        return "Sandwich{" +
-                ", sandwichBread='" + sandwichBread + '\'' +"\n" +
-                ", sandwichSize='" + sandwichSize + '\'' + "\n" +
-                ", Toppings='" + toppingsList + '\'' + "\n" +
-                ", isToasted='" + isToasted + '\'' + "\n" +
-                ", price= " + calculatePrice() +
-                '}';
+        StringBuilder sandwichDescription = new StringBuilder("Item: Custom Sandwich\n");
+        sandwichDescription.append("  Size: ").append(sandwichSize).append("\n")
+                .append("  Bread: ").append(sandwichBread).append("\n")
+                .append("  Toasted: ").append(isToasted).append("\n")
+                .append("  Toppings:\n");
+
+        for (Toppings topping : toppingsList) {
+            sandwichDescription.append("    ").append(topping.toString()).append("\n");
+        }
+
+        double sandwichPrice = calculatePrice();
+        sandwichDescription.append("  Total: $").append(sandwichPrice);
+        return sandwichDescription.toString();
     }
+
 
 }

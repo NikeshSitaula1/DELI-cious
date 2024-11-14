@@ -131,10 +131,11 @@ public class Toppings {
 
     @Override
     public String toString() {
-        String toppingDescription = "Topping: " + toppingName;
+        String toppingDescription = "- " + toppingName + " ($" + calculateToppingCost("4") + ")";
         if (toppingIsExtra) {
             toppingDescription += " (Extra)";
         }
         return toppingDescription;
     }
+
 }

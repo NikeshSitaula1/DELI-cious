@@ -46,9 +46,7 @@ public class Chips extends Items {
 
     @Override
     public String toString() {
-        return "Chips{" +
-                "Type='" + chipsType + '\'' +
-                ", Total Price= $" + calculatePrice() +
-                '}';
+        return "Chips: " + chipsType + " - $" + calculatePrice();
     }
+
 }

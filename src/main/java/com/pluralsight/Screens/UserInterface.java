@@ -65,6 +65,7 @@ public class UserInterface {
                     case 3 -> new ChipsInterface().processAddChips();
                     case 4 -> processCheckout();
                     case 0 -> {
+                        orderList.clearOrder();
                         return;
                     }
                     default -> System.out.println("Invalid entry. Please try again.");
@@ -110,12 +111,14 @@ public class UserInterface {
                     OrderFileManager.writeOrderReceipt(orderList.toString());
                     System.out.println("Order confirmed and receipt saved.");
                     System.out.println("Thank you for your order!");
+                    orderList.clearOrder();
                     homeScreen(); // Return to the home screen after checkout
                     return;
 
                 } else if (selection == 2) {
                     //CANCEL ORDER GOES BACK TO HOME SCREEN
                     System.out.println("Order cancelled. Returning to home screen.");
+                    orderList.clearOrder();
                     homeScreen();
                     return;
 

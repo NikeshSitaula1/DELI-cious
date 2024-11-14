@@ -93,9 +93,9 @@ public class ToppingsInterface {
         do {
             try {
                 System.out.println("""
-            ==========================================
-                   Choose a regular topping:
-            ==========================================""");
+            =============================================
+                   Choose a regular topping: (Max 4)
+            =============================================""");
                 List<String> regularOptions = topping.getRegularOptions();
 
                 for (int i = 0; i < regularOptions.size(); i++) {
@@ -103,7 +103,7 @@ public class ToppingsInterface {
                 }
                 System.out.println("""
                0 - Done
-            ==========================================""");
+            =============================================""");
 
                 int regularChoice = Console.PromptForInt(">> ");
 
@@ -142,7 +142,7 @@ public class ToppingsInterface {
             try {
                 System.out.println("""
             ==========================================
-               Choose from the following sauce items:
+               Choose a sauce items: (Max 4)
             ==========================================""");
 
                 List<String> sauceOptions = topping.getSauceOptions();

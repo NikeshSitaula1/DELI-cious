@@ -1,9 +1,0 @@
-Order Summary:
-Sandwich{, sandwichBread='Wheat'
-, sandwichSize='8'
-, Toppings='[Topping: Salami (Extra), Topping: Swiss, Topping: Pickles, Topping: Onions, Topping: Thousand Islands, Topping: Mayo]'
-, isToasted='No'
-, price= 11.5}
-Drink{Size='Medium', Flavor='Sprite', Total Price= $2.5}
-Chips{Type='Doritos', Total Price= $1.5}
-Grand Total: $15.5

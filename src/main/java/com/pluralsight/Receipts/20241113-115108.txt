@@ -1,9 +1,0 @@
-Order Summary:
-Sandwich{, sandwichBread='White Bread'
-, sandwichSize='4'
-, Toppings='[Topping: Salami (Extra), Topping: Swiss (Extra), Topping: Onions, Topping: Ranch]'
-, isToasted='Yes'
-, price= 8.05}
-Drink{Size='Large', Flavor='Fanta', Total Price= $3.0}
-Chips{Type='Cheetos', Total Price= $1.5}
-Grand Total: $12.55
