@@ -11,6 +11,7 @@ public class SignatureSandwiches extends Sandwich {
         super(name, quantity, sandwichBread, sandwichSize, isToasted, toppingsList);
     }
 
+    //FIXED VALUES
     public static SignatureSandwiches createBLT() {
 
         List<Toppings> bltTopping = new ArrayList<>();
@@ -26,6 +27,7 @@ public class SignatureSandwiches extends Sandwich {
     }
 
 
+    //FIXED VALUES
     public static SignatureSandwiches createPhillyCheeseSteak() {
 
         List<Toppings> phillyTopping = new ArrayList<>();
@@ -41,7 +43,7 @@ public class SignatureSandwiches extends Sandwich {
 
     @Override
     public String toString() {
-        //CALLING SANDWICH TO STRING BUT CHANGING NAME
+        //CALLING SANDWICH TO-STRING BUT CHANGING NAME
         String baseDescription = super.toString();
         return baseDescription.replace("Item: Custom Sandwich", "Item: " + getName());
     }

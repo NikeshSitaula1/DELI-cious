@@ -50,6 +50,7 @@ public class Drinks extends Items {
     }
 
 
+    //MAIN CALCULATIONS
     @Override
     public double calculatePrice() {
 
@@ -67,6 +68,7 @@ public class Drinks extends Items {
         return drinkPrice;
     }
 
+    //TO-STRING
     @Override
     public String toString() {
         return "Drink: " + drinkFlavor + " (" + drinkSize + ") - $" + calculatePrice();

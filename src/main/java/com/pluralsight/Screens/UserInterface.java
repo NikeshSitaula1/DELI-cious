@@ -76,6 +76,7 @@ public class UserInterface {
         } while (true);
     }
 
+
     //CHECKOUT
     public void processCheckout() {
 
@@ -86,7 +87,6 @@ public class UserInterface {
                 =================================================
                 """);
         System.out.println(orderList.toString());
-
 
 
         String options = """
@@ -108,6 +108,7 @@ public class UserInterface {
 
                 if (selection == 1) {
                     //CONFIRM CHECKOUT
+                    //WRITES ORDER LISTS INTO A FILE AFTER TURNING IT INTO STRING
                     OrderFileManager.writeOrderReceipt(orderList.toString());
                     System.out.println("Order confirmed and receipt saved.");
                     System.out.println("Thank you for your order!");
@@ -131,7 +132,7 @@ public class UserInterface {
                 }
 
             } catch (Exception e) {
-                System.out.println("Invalid selection. Please try again.");
+                System.out.println("Invalid selection. Please try again." + e.getMessage());
             }
         } while (true);
     }

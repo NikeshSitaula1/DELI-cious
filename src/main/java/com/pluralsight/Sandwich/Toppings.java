@@ -91,8 +91,7 @@ public class Toppings {
     }
 
 
-
-    // MAIN CALCULATION
+    //MAIN CALCULATION
     public double calculateToppingCost(String sandwichSize) {
 
 
@@ -110,6 +109,7 @@ public class Toppings {
 
     public double calculateMeatCost(String sandwichSize){
         return switch (sandwichSize) {
+            //CASE NO. -> (CONDITION) ? (IF TRUE, DO THIS) : (OTHERWISE, DO THIS)
             case "4" -> toppingIsExtra ? costMeatSize4 + extraCostMeatSize4 : costMeatSize4;  // 1.00 + 0.5 for extra
             case "8" -> toppingIsExtra ? costMeatSize8 + extraCostMeatSize8 : costMeatSize8;  // 2.00 + 1.00 for extra
             case "12" -> toppingIsExtra ? costMeatSize12 + extraCostMeatSize12 : costMeatSize12; // 3.00 + 1.5 for extra
@@ -119,6 +119,7 @@ public class Toppings {
 
     public double calculateCheeseCost(String sandwichSize){
         return switch (sandwichSize) {
+            //CASE NO. -> (CONDITION) ? (IF TRUE, DO THIS) : (OTHERWISE, DO THIS)
             case "4" -> toppingIsExtra ? costCheeseSize4 + extraCostCheeseSize4 : costCheeseSize4;  // 0.75 + 0.30 for extra
             case "8" -> toppingIsExtra ? costCheeseSize8 + extraCostCheeseSize8: costCheeseSize8;  // 1.50 + 0.60 for extra
             case "12" -> toppingIsExtra ? costCheeseSize12 + extraCostCheeseSize12 : costCheeseSize12; // 2.25 + 0.90 for extra
@@ -126,9 +127,11 @@ public class Toppings {
         };
     }
 
+    //TO-STRING
     @Override
     public String toString() {
         String toppingDescription = "- " + toppingName + " ($" + calculateToppingCost("4") + ")";
+        //CONDITION FOR EXTRA
         if (toppingIsExtra) {
             toppingDescription += " (Extra)";
         }

@@ -39,11 +39,14 @@ public class Chips extends Items {
         return chipsTypeList;
     }
 
+    //MAIN CALCULATIONS
     @Override
     public double calculatePrice() {
         return chipsPrice;
     }
 
+
+    //TO-STRING
     @Override
     public String toString() {
         return "Chips: " + chipsType + " - $" + calculatePrice();

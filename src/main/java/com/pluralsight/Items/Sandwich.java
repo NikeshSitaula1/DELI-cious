@@ -18,7 +18,7 @@ public class Sandwich extends Items {
     private static final double sandwichSize4= 5.50, sandwichSize8= 7.00, sandwichSize12= 8.50;
 
 
-    // ALL CONSTRUCTORS
+    //ALL CONSTRUCTORS
     public Sandwich(String name, int quantity, String sandwichBread, String sandwichSize, String isToasted) {
         super(name, quantity);
         this.sandwichBread = sandwichBread;
@@ -52,21 +52,16 @@ public class Sandwich extends Items {
         this.isToasted = isToasted;
     }
 
-
     public Sandwich(){}
 
 
-    // ALL GETTERS AND SETTERS
+    //ALL GETTERS AND SETTERS
     public String getSandwichSize() {
         return sandwichSize;
     }
 
     public void setSandwichSize(String sandwichSize) {
-        if (sandwichSize.equals("4") || sandwichSize.equals("8") || sandwichSize.equals("12")) {
-            this.sandwichSize = sandwichSize;
-        } else {
-            System.out.println("Invalid size. Please choose 4\", 8\", or 12\".");
-        }
+        this.sandwichSize = sandwichSize;
     }
 
     public String getSandwichBread() {
@@ -94,12 +89,14 @@ public class Sandwich extends Items {
     }
 
 
-    // ADD TOPPINGS
+    //ADD TOPPINGS
     public void addTopping(Toppings topping) {
         toppingsList.add(topping);  // Add the regular topping
     }
 
 
+    //MAIN CALCULATIONS
+    //CALCULATE SANDWICH AND TOPPING PRICE
     @Override
     public double calculatePrice() {
         double sandwichPrice = 0;
@@ -116,13 +113,14 @@ public class Sandwich extends Items {
         }
 
         for (Toppings toppings : toppingsList){
+            //ADDS TOPPINGS PRICE LOOKING AT SANDWICH SIZE
             toppingsCost += toppings.calculateToppingCost(sandwichSize);
         }
-
         return sandwichPrice + toppingsCost;
     }
 
 
+    //TO STRING TO OUTPUT
     @Override
     public String toString() {
         StringBuilder sandwichDescription = new StringBuilder("Item: Custom Sandwich\n");
@@ -131,6 +129,7 @@ public class Sandwich extends Items {
                 .append("  Toasted: ").append(isToasted).append("\n")
                 .append("  Toppings:\n");
 
+        //TOPPING TO-STRING WILL SHOW UP HERE
         for (Toppings topping : toppingsList) {
             sandwichDescription.append("    ").append(topping.toString()).append("\n");
         }

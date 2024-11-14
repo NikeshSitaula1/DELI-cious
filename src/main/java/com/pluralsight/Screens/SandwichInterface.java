@@ -24,7 +24,6 @@ public class SandwichInterface {
         >>\s""";
 
         int sandwichSelection;
-
         try {
             sandwichSelection = Console.PromptForInt(options);
             switch (sandwichSelection) {
@@ -56,6 +55,7 @@ public class SandwichInterface {
                    🍞 Please select your bread 🍞
             ==========================================""");
 
+                //GETS OPTIONS FROM THE BREAD OPTIONS LIST
                 for (int i = 0; i < breadOptions.size(); i++) {
                     System.out.printf("   %d - %s%n", i + 1, breadOptions.get(i));
                 }
@@ -69,6 +69,7 @@ public class SandwichInterface {
                 if (breadChoice == 0) {
                     System.out.println("Order canceled. Returning to main menu.");
                     return;
+                    //CONDITION IS MORE THAN 1 AND LESS THAN BREAD OPTIONS LIST, GET INDEX THAT'S -1 OF NUMBER YOU CHOOSE
                 } else if (breadChoice >= 1 && breadChoice <= breadOptions.size()) {
                     sandwichBread = breadOptions.get(breadChoice - 1);
                     System.out.println("You selected: " + sandwichBread);
@@ -92,8 +93,9 @@ public class SandwichInterface {
             }
         } while (true);
 
-        //ADD TOPPINGS
+        //ADD TOPPINGS FROM TOPPING LIST
         new ToppingsInterface().processAddToppings(toppingsList);
+
         //TOASTED OPTION SELECTION
         do {
             isToasted = Console.PromptForString("Would you like the sandwich toasted? (Yes/No): ");
@@ -120,6 +122,7 @@ public class SandwichInterface {
 
 
     public void processSignatureSandwich() {
+
         String options = """
         =================================================
         Please choose of the Signature sandwiches:

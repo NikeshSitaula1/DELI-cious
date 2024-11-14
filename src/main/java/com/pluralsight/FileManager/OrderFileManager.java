@@ -11,10 +11,11 @@ public class OrderFileManager {
 
     public static void writeOrderReceipt(String order){
 
+        //DIRECTORY PATH WHERE THE RECEIPTS WILL BE STORED
         String dirPath = "src/main/java/com/pluralsight/Receipts/";
         File directory = new File(dirPath);
 
-        // Ensure directory exists
+        //ENSURES DIRECTORY EXISTS
         if (!directory.exists()) {
             directory.mkdirs();
         }
@@ -22,7 +23,7 @@ public class OrderFileManager {
         try {
             LocalDateTime localDateTime = LocalDateTime.now();
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
             String filename = dirPath + localDateTime.format(formatter) + ".txt";
 
             BufferedWriter bw = new BufferedWriter(new FileWriter(filename));

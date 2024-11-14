@@ -5,11 +5,13 @@ public abstract class Items {
     private String name;
     private int quantity;
 
+    //CONSTRUCTORS
     public Items(String name, int quantity) {
         this.name = name;
         this.quantity = quantity;
     }
 
+    //ONLY EXTENDING CLASSES CAN SEE PROTECTED
     protected Items() {
     }
 
@@ -30,6 +32,5 @@ public abstract class Items {
     }
 
     public abstract double calculatePrice();
-
 
 }

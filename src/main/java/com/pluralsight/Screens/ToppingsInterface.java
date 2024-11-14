@@ -101,6 +101,7 @@ public class ToppingsInterface {
             =============================================""");
                 List<String> regularOptions = topping.getRegularOptions();
 
+                //GETS OPTIONS FROM REGULAR TOPPINGS LIST
                 for (int i = 0; i < regularOptions.size(); i++) {
                     System.out.printf("   %d - %s%n", i + 1, regularOptions.get(i));
                 }
@@ -114,17 +115,20 @@ public class ToppingsInterface {
                     break;
                 }
 
+                //CONDITION IS MORE THAN 1 AND LESS THAN REGULAR TOPPINGS LIST, GET INDEX THAT'S -1 OF NUMBER YOU CHOOSE
                 if (regularChoice >= 1 && regularChoice <= regularOptions.size()) {
                     String selectedRegular = regularOptions.get(regularChoice - 1);
 
                     toppingsList.add(new Toppings(selectedRegular, "Regular"));
                     System.out.println(selectedRegular + " added.");
 
+                    //MAX OF MAX REGULAR TOPPINGS COUNT VARIABLE CAN BE CHOSEN, AFTER THAT, IT WILL AUTOMATICALLY LEAVE THE OPTION
                     if (++regularToppingCount >= maxRegularToppingsCount) {
                         System.out.println("Maximum of " + maxRegularToppingsCount + " regular toppings reached.");
                         break;
                     }
 
+                    //IT WILL LOOP BACK TO CHOOSING REGULAR TOPPINGS, IF YES, LOOP TILL MAX REGULAR TOPPINGS COUNT
                     String addAnotherRegularTopping = Console.PromptForString("Would you like to add another regular topping? (Yes/No): ");
 
                     if (!addAnotherRegularTopping.equalsIgnoreCase("Yes") && !addAnotherRegularTopping.equalsIgnoreCase("Y")) {
@@ -138,7 +142,7 @@ public class ToppingsInterface {
             }
         } while (true);
 
-        // SAUCES
+        //SAUCES
         int sauceCount = 0;
         int maxSauceCount = 4;
         do {
@@ -150,6 +154,7 @@ public class ToppingsInterface {
 
                 List<String> sauceOptions = topping.getSauceOptions();
 
+                //GETS OPTIONS FROM SAUCE LIST
                 for (int i = 0; i < sauceOptions.size(); i++) {
                     System.out.printf("   %d - %s%n", i + 1, sauceOptions.get(i));
                 }
@@ -163,19 +168,21 @@ public class ToppingsInterface {
                     return;
                 }
 
+                //CONDITION IS MORE THAN 1 AND LESS THAN SAUCE LIST, GET INDEX THAT'S -1 OF NUMBER YOU CHOOSE
                 if (sauceChoice >= 1 && sauceChoice <= sauceOptions.size()) {
                     String selectedSauce = sauceOptions.get(sauceChoice - 1);
 
                     toppingsList.add(new Toppings(selectedSauce, "Sauce"));
                     System.out.println(selectedSauce + " added.");
 
+                    //MAX OF MAX SAUCE COUNT VARIABLE CAN BE CHOSEN, AFTER THAT, IT WILL AUTOMATICALLY LEAVE THE OPTION
                     if (++sauceCount >= maxSauceCount) {
                         System.out.println("Maximum of " + maxSauceCount + " sauces reached.");
                         return;
                     }
 
+                    //IT WILL LOOP BACK TO CHOOSING SAUCE, IF YES, LOOP TILL MAX SAUCE COUNT
                     String addAnotherSauce = Console.PromptForString("Would you like to add another sauce? (Yes/No): ");
-
                     if (!addAnotherSauce.equalsIgnoreCase("Yes") && !addAnotherSauce.equalsIgnoreCase("Y")) {
                         return;
                     }

@@ -11,7 +11,7 @@ public class DrinksInterface {
         String drinkFlavor;
         String drinkSize;
 
-        //DRINK FLAVOR SELECTION
+        ///DRINK FLAVOR SELECTION
         List<String> drinkFlavorList = new Drinks().getDrinkFlavorList();  //GET DRINK FLAVOR LIST
 
         do {
@@ -20,6 +20,7 @@ public class DrinksInterface {
                 System.out.println("         🥤 Choose Your Drink Flavor 🥤   ");
                 System.out.println("==========================================");
 
+                //GETS OPTIONS FROM THE DRINK FLAVOR LIST
                 for (int i = 0; i < drinkFlavorList.size(); i++) {
                     System.out.println("   " + (i + 1) + " - " + drinkFlavorList.get(i));
                 }
@@ -32,6 +33,7 @@ public class DrinksInterface {
                     System.out.println("Order canceled. Returning to main menu.");
                     return;
                 }
+                //CONDITION IS MORE THAN 1 AND LESS THAN DRINK FLAVOR LIST, GET INDEX THAT'S -1 OF NUMBER YOU CHOOSE
                 if (flavorChoice >= 1 && flavorChoice <= drinkFlavorList.size()) {
                     drinkFlavor = drinkFlavorList.get(flavorChoice - 1);
                     System.out.println("You selected: " + drinkFlavor);
@@ -44,7 +46,7 @@ public class DrinksInterface {
             }
         } while (true);
 
-        //DRINK SIZE SELECTION
+        ///DRINK SIZE SELECTION
         do {
             try {
                 System.out.println("""
@@ -79,7 +81,7 @@ public class DrinksInterface {
             }
         } while (true);
 
-        //CREATE DRINKS WITH FLAVOR AND SIZE THEN ADD TO ORDER
+        ///CREATE DRINKS WITH FLAVOR AND SIZE THEN SAVE IT TO CONSTRUCTOR AND ADD TO ORDER
         Drinks drink = new Drinks(drinkFlavor, drinkSize);
         orderList.addItems(drink);
         System.out.println(drinkFlavor + " (" + drinkSize + ") added to order.");

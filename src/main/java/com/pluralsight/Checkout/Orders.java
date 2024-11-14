@@ -31,22 +31,24 @@ public class Orders {
         return orderTotalPrice;
     }
 
+    //TO-STRING
     @Override
     public String toString() {
-        // Get the current date and time
+        //GETTING CURRENT DATE AND TIME
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         String formattedDateTime = now.format(formatter);
 
-        // Build the receipt header
+        //RECEIPT HEADER, ADDS CURRENT DATE AND TIME
         StringBuilder receipt = new StringBuilder("Receipt:\nDate: ").append(formattedDateTime).append("\n");
         receipt.append("-----------------------------\n");
 
-        // Separate items by type
+        //SEPARATING ITEMS BY TYPE
         List<Items> sandwiches = new ArrayList<>();
         List<Items> drinks = new ArrayList<>();
         List<Items> chips = new ArrayList<>();
 
+        //IF THIS OBJECT IN ITEMS IS TRUE, ADD TO THE TYPE
         for (Items item : itemList) {
             if (item instanceof Sandwich) {
                 sandwiches.add(item);
@@ -57,22 +59,22 @@ public class Orders {
             }
         }
 
-        // Append sandwiches first
+        //APPENDS SANDWICH FIRST
         for (Items sandwich : sandwiches) {
             receipt.append(sandwich.toString()).append("\n");
         }
 
-        // Append drinks next
+        //APPENDS DRINKS NEXT
         for (Items drink : drinks) {
             receipt.append(drink.toString()).append("\n");
         }
 
-        // Append chips last
+        //APPENDS CHIPS LAST
         for (Items chip : chips) {
             receipt.append(chip.toString()).append("\n");
         }
 
-        // Add the total price
+        //ADDS TOTAL PRICE
         receipt.append("-----------------------------\n")
                 .append("Total: $").append(calculateTotalPrice());
 
