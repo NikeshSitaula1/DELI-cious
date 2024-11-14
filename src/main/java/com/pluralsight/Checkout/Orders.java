@@ -76,7 +76,7 @@ public class Orders {
 
         //ADDS TOTAL PRICE
         receipt.append("-----------------------------\n")
-                .append("Total: $").append(calculateTotalPrice());
+                .append("Total: $").append(String.format("%.2f", calculateTotalPrice()));
 
         return receipt.toString();
     }

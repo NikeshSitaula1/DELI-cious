@@ -84,7 +84,7 @@ public class SandwichInterface {
 
         //SANDWICH SIZE SELECTION
         do {
-            sandwichSize = Console.PromptForString("Choose Sandwich Size: (4\", 8\", 12\"): ");
+            sandwichSize = Console.PromptForString("Choose Sandwich Size: (4\" ($5.50), 8\" ($7.00), 12\" ($8.50)): ");
             if (sandwichSize.equals("4") || sandwichSize.equals("8") || sandwichSize.equals("12")) {
                 System.out.println("You selected: " + sandwichSize);
                 break;

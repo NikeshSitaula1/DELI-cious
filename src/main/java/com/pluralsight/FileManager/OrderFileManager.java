@@ -23,7 +23,7 @@ public class OrderFileManager {
         try {
             LocalDateTime localDateTime = LocalDateTime.now();
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
             String filename = dirPath + localDateTime.format(formatter) + ".txt";
 
             BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
