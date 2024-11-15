@@ -12,7 +12,7 @@ import static com.pluralsight.Screens.UserInterface.orderList;
 
 public class SandwichInterface {
 
-    // ADD SANDWICH
+    //ADD SANDWICH
     public void processAddSandwich() {
 
         String options = """
@@ -48,7 +48,7 @@ public class SandwichInterface {
         String isToasted;
         List<Toppings> toppingsList = new ArrayList<>();
 
-        // SANDWICH BREAD SELECTION
+        ///SANDWICH BREAD SELECTION
         do {
             try {
                 System.out.println("""
@@ -56,7 +56,7 @@ public class SandwichInterface {
                    🍞 Please select your bread 🍞
             ==========================================""");
 
-                //GETS OPTIONS FROM THE BREAD OPTIONS LIST
+                //gets options from the bread options list
                 for (int i = 0; i < breadOptions.size(); i++) {
                     System.out.printf("   %d - %s%n", i + 1, breadOptions.get(i));
                 }
@@ -70,7 +70,7 @@ public class SandwichInterface {
                 if (breadChoice == 0) {
                     System.out.println("Order canceled. Returning to main menu.");
                     return;
-                    //CONDITION IS MORE THAN 1 AND LESS THAN BREAD OPTIONS LIST, GET INDEX THAT'S -1 OF NUMBER YOU CHOOSE
+                    //condition is more than 1 and less than bread options list, get the index that's -1 of number you choose
                 } else if (breadChoice >= 1 && breadChoice <= breadOptions.size()) {
                     sandwichBread = breadOptions.get(breadChoice - 1);
                     System.out.println("You selected: " + sandwichBread);
@@ -83,7 +83,7 @@ public class SandwichInterface {
             }
         } while (true);
 
-        //SANDWICH SIZE SELECTION
+        ///SANDWICH SIZE SELECTION
         do {
             sandwichSize = Console.PromptForString("""
                         Choose Sandwich Size:
@@ -100,10 +100,10 @@ public class SandwichInterface {
             }
         } while (true);
 
-        //ADD TOPPINGS FROM TOPPING LIST
+        ///add toppings from topping list
         new ToppingsInterface().processAddToppings(toppingsList);
 
-        //TOASTED OPTION SELECTION
+        ///TOASTED OPTION SELECTION
         do {
             isToasted = Console.PromptForString("Would you like the sandwich toasted? (Yes/No): ");
             if (isToasted.equalsIgnoreCase("Yes") || isToasted.equalsIgnoreCase("y")) {
@@ -119,10 +119,10 @@ public class SandwichInterface {
             }
         } while (true);
 
-        //CREATE SANDWICH OBJECT THAT WILL SAVE THE VALUES IN THE CONSTRUCTOR
+        //create sandwich object that will save the values in the constructor
         Sandwich sandwich = new Sandwich(sandwichBread, sandwichSize, toppingsList, isToasted);
 
-        //ADD SANDWICH TO ORDER LIST
+        //add sandwich to the order list
         orderList.addItems(sandwich);
         System.out.println("Sandwich added successfully!");
     }
@@ -145,12 +145,12 @@ public class SandwichInterface {
             signatureSandwichSelection = Console.PromptForInt(options);
             if (signatureSandwichSelection == 1) {
                 SignatureSandwiches blt = SignatureSandwiches.createBLT();
-                orderList.addItems(blt);  //ADDED BLT TO ORDER
+                orderList.addItems(blt);  //added blt to order
                 System.out.println("BLT added to your order.");
 
             } else if (signatureSandwichSelection == 2) {
                 SignatureSandwiches phillyCheeseSteak = SignatureSandwiches.createPhillyCheeseSteak();
-                orderList.addItems(phillyCheeseSteak);  //ADD PHILLY CHEESE STEAK TO ORDER
+                orderList.addItems(phillyCheeseSteak);  //added philly cheese steak to order
                 System.out.println("Philly Cheese Steak added to your order.");
 
             } else if (signatureSandwichSelection == 0) {

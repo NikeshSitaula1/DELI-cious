@@ -11,11 +11,11 @@ public class OrderFileManager {
 
     public static void writeOrderReceipt(String order){
 
-        //DIRECTORY PATH WHERE THE RECEIPTS WILL BE STORED
+        //directory path where the receipts will be stored
         String dirPath = "src/main/java/com/pluralsight/Receipts/";
         File directory = new File(dirPath);
 
-        //ENSURES DIRECTORY EXISTS
+        //ensures directory exists
         if (!directory.exists()) {
             directory.mkdirs();
         }

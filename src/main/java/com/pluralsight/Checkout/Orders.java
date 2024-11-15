@@ -13,44 +13,41 @@ public class Orders {
 
     private List<Items> itemList = new ArrayList<>();
 
-    //ADD ITEMS
+    //add items
     public void addItems(Items items){
         itemList.add(items);
     }
 
-    //CLEAR ITEMS IN THE ORDER
+    //clear items in the order
     public void clearOrder() {
         itemList.clear();
     }
 
     //TOTAL CALCULATION
-    public double calculateTotalPrice(){
-        double orderTotalPrice = 0;
-
-        for (Items items : itemList){
-            orderTotalPrice += items.calculatePrice();
-        }
-        return orderTotalPrice;
+    public double calculateTotalPrice() {
+        return itemList.stream()
+                .mapToDouble(Items::calculatePrice) //Map each item to its price
+                .sum(); //Sum up all the prices
     }
 
-    //TO-STRING
+
     @Override
     public String toString() {
-        //GETTING CURRENT DATE AND TIME
+        //getting current date and time
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         String formattedDateTime = now.format(formatter);
 
-        //RECEIPT HEADER, ADDS CURRENT DATE AND TIME
+        //receipt header, adds current date and time
         StringBuilder receipt = new StringBuilder("Receipt:\nDate: ").append(formattedDateTime).append("\n");
         receipt.append("-----------------------------------\n");
 
-        //SEPARATING ITEMS BY TYPE
+        //separating items by type
         List<Items> sandwiches = new ArrayList<>();
         List<Items> drinks = new ArrayList<>();
         List<Items> chips = new ArrayList<>();
 
-        //IF THIS OBJECT IN ITEMS IS TRUE, ADD TO THE TYPE
+        //if this object in items is true, add to the type
         for (Items item : itemList) {
             if (item instanceof Sandwich) {
                 sandwiches.add(item);
@@ -61,22 +58,22 @@ public class Orders {
             }
         }
 
-        //APPENDS SANDWICH FIRST
+        //appends sandwich first
         for (Items sandwich : sandwiches) {
             receipt.append(sandwich.toString()).append("\n");
         }
 
-        //APPENDS DRINKS NEXT
+        //appends drinks next
         for (Items drink : drinks) {
             receipt.append(drink.toString()).append("\n");
         }
 
-        //APPENDS CHIPS LAST
+        //appends chips last
         for (Items chip : chips) {
             receipt.append(chip.toString()).append("\n");
         }
 
-        //ADDS TOTAL PRICE
+        //adds total price
         receipt.append("-----------------------------------\n")
                 .append("Total: $").append(String.format("%.2f", calculateTotalPrice()))
                 .append("\n-----------------------------------");

@@ -11,7 +11,7 @@ public class Toppings {
     private boolean toppingIsExtra;
 
 
-    // FIXED VALUES
+    //FIXED VALUES
     private List<String> meatOptions = new ArrayList<>(List.of("Steak","Ham","Salami","Roast beef","Chicken","Bacon"));
     private List<String> cheeseOptions = new ArrayList<>(List.of("American cheese", "Provolone","Cheddar","Swiss"));
     private List<String> regularOptions = new ArrayList<>(List.of("Lettuce", "Peppers", "Onions", "Tomatoes", "Jalapenos",
@@ -25,7 +25,7 @@ public class Toppings {
     private static final double extraCostCheeseSize4= 0.30, extraCostCheeseSize8= 0.60, extraCostCheeseSize12= 0.90;
 
 
-    // CONSTRUCTORS
+    //CONSTRUCTORS
     public Toppings(String toppingName, String toppingType, boolean toppingIsExtra) {
         this.toppingName = toppingName;
         this.toppingType = toppingType;
@@ -42,7 +42,7 @@ public class Toppings {
     public Toppings(){}
 
 
-    // GETTERS AND SETTERS
+    //GETTERS AND SETTERS
     public String getToppingName() {
         return toppingName;
     }
@@ -111,7 +111,7 @@ public class Toppings {
 
     public double calculateMeatCost(String sandwichSize){
         return switch (sandwichSize) {
-            //CASE NO. -> (CONDITION) ? (IF TRUE, DO THIS) : (OTHERWISE, DO THIS)
+            //case no. -> (condition) ? (if true, do this) : (otherwise, do this)
             case "4" -> toppingIsExtra ? costMeatSize4 + extraCostMeatSize4 : costMeatSize4;  // 1.00 + 0.5 for extra
             case "8" -> toppingIsExtra ? costMeatSize8 + extraCostMeatSize8 : costMeatSize8;  // 2.00 + 1.00 for extra
             case "12" -> toppingIsExtra ? costMeatSize12 + extraCostMeatSize12 : costMeatSize12; // 3.00 + 1.5 for extra
@@ -121,7 +121,7 @@ public class Toppings {
 
     public double calculateCheeseCost(String sandwichSize){
         return switch (sandwichSize) {
-            //CASE NO. -> (CONDITION) ? (IF TRUE, DO THIS) : (OTHERWISE, DO THIS)
+            //case no. -> (condition) ? (if true, do this) : (otherwise, do this)
             case "4" -> toppingIsExtra ? costCheeseSize4 + extraCostCheeseSize4 : costCheeseSize4;  // 0.75 + 0.30 for extra
             case "8" -> toppingIsExtra ? costCheeseSize8 + extraCostCheeseSize8: costCheeseSize8;  // 1.50 + 0.60 for extra
             case "12" -> toppingIsExtra ? costCheeseSize12 + extraCostCheeseSize12 : costCheeseSize12; // 2.25 + 0.90 for extra
@@ -129,14 +129,13 @@ public class Toppings {
         };
     }
 
-    //TO-STRING
+
     @Override
     public String toString() {
-        // Format the topping cost to two decimal places
         String formattedCost = String.format("%.2f", calculateToppingCost("4"));
         String toppingDescription = "- " + toppingName + " ($" + formattedCost + ")";
 
-        // Append "(Extra)" if this topping is extra
+        //Append "(Extra)" if this topping is extra
         if (toppingIsExtra) {
             toppingDescription += " (Extra)";
         }

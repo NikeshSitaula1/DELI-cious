@@ -39,7 +39,7 @@ public class UserInterface {
     }
 
 
-    // ORDER SCREEN
+    //ORDER SCREEN
     public void orderScreen() {
 
         String options = """
@@ -108,24 +108,24 @@ public class UserInterface {
                 selection = Console.PromptForInt(options);
 
                 if (selection == 1) {
-                    //CONFIRM CHECKOUT
-                    //WRITES ORDER LISTS INTO A FILE AFTER TURNING IT INTO STRING
+                    //confirm checkout
+                    //writes order lists into a file after turning it into a string
                     OrderFileManager.writeOrderReceipt(orderList.toString());
                     System.out.println("Order confirmed and receipt saved.");
                     System.out.println("Thank you for your purchase!!");
                     orderList.clearOrder();
-                    homeScreen(); //RETURN TO HOME SCREEN AFTER CHECKOUT
+                    homeScreen(); //return to home screen after checkout
                     return;
 
                 } else if (selection == 2) {
-                    //CANCEL ORDER GOES BACK TO HOME SCREEN
+                    //cancel order goes back to home screen
                     System.out.println("Order cancelled. Returning to home screen.");
                     orderList.clearOrder();
                     homeScreen();
                     return;
 
                 } else if (selection == 0) {
-                    //GO BACK TO ORDER SCREEN
+                    //go back to order screen
                     return;
 
                 } else {

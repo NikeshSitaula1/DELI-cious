@@ -8,12 +8,12 @@ import java.util.List;
 
 public class ToppingsInterface {
 
-    // ADD TOPPINGS
+    //ADD TOPPINGS
     public void processAddToppings(List<Toppings> toppingsList) {
         Toppings topping = new Toppings();
         boolean isExtra;
 
-        // MEAT TOPPINGS
+        //MEAT TOPPINGS
         do {
             try {
                 System.out.println("""
@@ -23,6 +23,7 @@ public class ToppingsInterface {
 
                 List<String> meatOptions = topping.getMeatOptions();
 
+                //gets options from the meat toppings list
                 for (int i = 0; i < meatOptions.size(); i++) {
                     System.out.printf("   %d - %s%n", i + 1, meatOptions.get(i));
                 }
@@ -41,6 +42,7 @@ public class ToppingsInterface {
 
                     String selectedMeat = meatOptions.get(meatChoice - 1);
 
+                    //If yes, boolean IsExtra is true
                     String extraMeatChoice =  Console.PromptForString("Would you like extra " + selectedMeat + "? (Yes/No): ");
                     isExtra = extraMeatChoice.equalsIgnoreCase("Yes") || extraMeatChoice.equalsIgnoreCase("Y");
 
@@ -54,7 +56,7 @@ public class ToppingsInterface {
             }
         } while (true);
 
-        // CHEESE TOPPINGS
+        //CHEESE TOPPINGS
         do {
             try {
                 System.out.println("""
@@ -63,6 +65,7 @@ public class ToppingsInterface {
             ==========================================""");
                 List<String> cheeseOptions = topping.getCheeseOptions();
 
+                //gets options from the cheese toppings list
                 for (int i = 0; i < cheeseOptions.size(); i++) {
                     System.out.printf("   %d - %s%n", i + 1, cheeseOptions.get(i));
                 }
@@ -78,8 +81,10 @@ public class ToppingsInterface {
                 if (cheeseChoice >= 1 && cheeseChoice <= cheeseOptions.size()) {
                     String selectedCheese = cheeseOptions.get(cheeseChoice - 1);
 
+                    //If yes, boolean IsExtra is true
                     String extraCheeseChoice =  Console.PromptForString("Would you like extra " + selectedCheese + "? (Yes/No): ");
                     isExtra = extraCheeseChoice.equalsIgnoreCase("Yes") || extraCheeseChoice.equalsIgnoreCase("Y");
+
 
                     toppingsList.add(new Toppings(selectedCheese, "Cheese", isExtra));
                     break;

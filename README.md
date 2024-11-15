@@ -98,7 +98,7 @@ Topping is not extended, as topping is not a sandwich, rather sandwich has toppi
 which to print each item. This code loop goes through each index of the breadOptions list, starting from i = 0 and continuing
 as long as variable i is less than the size of the list (breadOptions.size()). i++: After each iteration, i increments by 1, moving to 
 the next item in the list. It then prints the option i + 1, so it does not start from 0, and gets the current index of i 
-from the breadOptions list.
+from the breadOptions list. If I ever add an item to the list, it will automatically add them and show as an option.
 
 ---
 

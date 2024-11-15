@@ -91,36 +91,29 @@ public class Sandwich extends Items {
 
     //ADD TOPPINGS
     public void addTopping(Toppings topping) {
-        toppingsList.add(topping);  // Add the regular topping
+        toppingsList.add(topping);  //Add the regular topping
     }
 
 
     //MAIN CALCULATIONS
-    //CALCULATE SANDWICH AND TOPPING PRICE
+    //calculate sandwich and topping price
     @Override
     public double calculatePrice() {
-        double sandwichPrice = 0;
-        double toppingsCost = 0;
 
-        if (sandwichSize.equals("4")){
-            sandwichPrice = sandwichSize4;
-        }
-        else if (sandwichSize.equals("8")) {
-            sandwichPrice = sandwichSize8;
-        }
-        else if (sandwichSize.equals("12")) {
-            sandwichPrice = sandwichSize12;
-        }
+        double sandwichPrice = switch (sandwichSize) {
+            case "4" -> sandwichSize4;
+            case "8" -> sandwichSize8;
+            case "12" -> sandwichSize12;
+            default -> 0;
+        };
 
-        for (Toppings toppings : toppingsList){
-            //ADDS TOPPINGS PRICE LOOKING AT SANDWICH SIZE
-            toppingsCost += toppings.calculateToppingCost(sandwichSize);
-        }
+        double toppingsCost = toppingsList.stream()
+                .mapToDouble(topping -> topping.calculateToppingCost(sandwichSize))
+                .sum();
         return sandwichPrice + toppingsCost;
     }
 
 
-    //TO STRING TO OUTPUT
     @Override
     public String toString() {
         StringBuilder sandwichDescription = new StringBuilder("Sandwich: Custom Sandwich\n");

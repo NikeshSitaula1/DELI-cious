@@ -11,7 +11,7 @@ public abstract class Items {
         this.quantity = quantity;
     }
 
-    //ONLY EXTENDING CLASSES CAN SEE PROTECTED
+    //only extending classes can see protected
     protected Items() {
     }
 

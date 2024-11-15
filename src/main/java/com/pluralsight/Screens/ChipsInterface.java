@@ -38,7 +38,7 @@ public class ChipsInterface {
                     chipsType = chipsTypeList.get(chipsChoice - 1);
                     System.out.println("You selected: " + chipsType);
 
-                    // CREATE CHIPS WITH THE SELECTED TYPE
+                    //create chips with the selected type
                     Chips chip = new Chips(chipsType);
                     orderList.addItems(chip);  // Add the chip to the order list
                     System.out.println("Chips successfully added to your order.");

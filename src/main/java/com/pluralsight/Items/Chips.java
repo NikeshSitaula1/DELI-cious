@@ -46,7 +46,6 @@ public class Chips extends Items {
     }
 
 
-    //TO-STRING
     @Override
     public String toString() {
         return "Chips: " + chipsType + " - $" + String.format("%.2f", calculatePrice());
