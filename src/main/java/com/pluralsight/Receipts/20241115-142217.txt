@@ -1,20 +1,19 @@
 Receipt:
-Date: 2024/11/14 22:21:38
+Date: 2024/11/15 14:22:17
 -----------------------------------
 Sandwich: Custom Sandwich
-  Size: 4
-  Bread: Wheat
+  Size: 12
+  Bread: White Bread
   Toasted: Yes
   Toppings:
-    - Ham ($1.50) (Extra)
+    - Roast beef ($1.50) (Extra)
     - Swiss ($1.05) (Extra)
-    - Jalapenos
     - Onions
-    - Ranch
+    - Jalapenos
+    - Peppers
+    - Guacamole
     - Ketchup
-    - Au jus 
-    - Vinaigrette
-  Total: $8.05
+  Total: $16.15
 Sandwich: BLT
   Size: 8
   Bread: white bread
@@ -26,9 +25,8 @@ Sandwich: BLT
     - Tomato
     - Ranch
   Total: $10.50
-Drink: Sprite (Large) - $3.00
-Drink: Pepsi (Small) - $2.00
-Chips: Cheetos Hot - $1.50
+Drink: Pepsi (Large) - $3.00
+Chips: Doritos Cool Ranch - $1.50
 -----------------------------------
-Total: $25.05
+Total: $31.15
 -----------------------------------
