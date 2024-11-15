@@ -5,38 +5,40 @@
 YearUp Capstone 2, a Java-based ordering system designed for a deli shop. This project allows users to create custom or 
 signature sandwiches, add drinks, chips, and manage their orders seamlessly through a console-based interface. 
 
+---
+
 # Table of Contents
 
-- [File Structure](#File-Structure)
+- [Application Structure](#Application-Structure)
 - [Application Demo](#Application-Demo)
 - [Getting Started](#Getting-Started)
-- [Screenshots](#Screenshots)
 - [Interesting code](#Interesting-Code)
+- [License](#License)
 
 
 ---
 
-## File Structure
+## Application Structure
 
 - User Interface to Order: User interface classes will ask for input and store it in the order class. 
 Order File Manager would then write the stored content into text file.
 
-![UserInterfaceToDiagram](https://imgur.com/a/7LkDrNR)
+![UserInterfaceToDiagram](https://i.imgur.com/riTeBDS.png)
 
 - Sandwiches, Drinks and Chips are saved in Items class, as they are extended towards Items with Inheritance. Signature sandwich is extend to Sandwich. 
 Topping is not extended, as topping is not a sandwich, rather sandwich has toppings 
 
-![ItemsInItemsClass](https://imgur.com/a/LKRTfEY)
+![ItemsInItemsClass](https://i.imgur.com/KTEW7yA.png)
 
 - Order will collect the Items as list, which would be the main data to write in the Receipt with File Manager. 
 
-![ItemsCollectedInOrders](https://imgur.com/a/ttDaWQn)
+![ItemsCollectedInOrders](https://i.imgur.com/2eC9DEB.png)
 
 ---
 
 ## Application Demo
 
--Some Demos:
+**Some Demos:**
 
 ### User Interface
 
@@ -71,40 +73,36 @@ Topping is not extended, as topping is not a sandwich, rather sandwich has toppi
 ## Getting Started
 
 ### Prerequisites
-- Java Development Kit (JDK) 11 or higher
+- Java Development Kit (JDK) 14 or higher
 - Text Editor or IDE (IntelliJ IDEA)
 - Build System - Maven
 
 ### Installation
 1. **Clone the repository** to your local machine:
     ```bash
-   git clone https://github.com/NikeshSitaula1/AccountingLedgerApplication.git
+   git clone https://github.com/NikeshSitaula1/DELI-cious.git
 2. Navigate to the project directory:
     ```bash
-   cd AcoountingLedgerApplication
-3. Run the Application using an IDE
+   cd DELI-cious
+3. Run the Application using an IDE and run the `Main` class
 
 ---
 
-
-
----
 ## Interesting Code
 
+#### for (int i = 0; i < breadOptions.size(); i++) {
+#### System.out.printf("   %d - %s%n", i + 1, breadOptions.get(i));
+#### }
 
-![Arraylist.size()+1](https://i.imgur.com/bYS9L1Z.png)
-![Constructed ID](https://i.imgur.com/8FPaKlz.png)
+- A simple but a very effective code to me as I use this code a lot in my capstone. I used List breadOptions to print each items. 
+This code loop goes through each index of the breadOptions list, starting from i = 0 and continuing as long as i is less 
+than the size of the list (breadOptions.size()). i++: After each iteration, i increments by 1, moving to the next item in the 
+list. It then prints the option i + 1, so it does not start from 0, and gets the current index of i from the breadOptions list.
 
+---
 
+## License
 
-I have created an instance variable, id for my Ledger class, thinking it would be
-necessary for this project. However, I later realized that the application did not
-require the id field. So, I did not want to create a function to call the id, but
-leaving it alone would mean my object not working as it is tied to it. As such, instead of removing the id,
-I decided to auto generate ids based on current size of the transactions list with ```transactions.size() + 1```.This
-allowed me to keep track of entries, allowing each new entry to get a unique. incremental id automatically.
-The problem of doing this way tho, is that, if an item is deleted from the transactions list, it will no
-longer remain sequential and there will be unused ids.
+This project is licensed under the MIT License.
 
-- Latest update replaces the arraylist.size() + 1 to get an automatic ID with UUID, a much better way to get a unique ID.
-- Thank you to all the feedback on my presentation for this update. 
+---
