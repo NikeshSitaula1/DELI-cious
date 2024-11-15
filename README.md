@@ -18,35 +18,55 @@ signature sandwiches, add drinks, chips, and manage their orders seamlessly thro
 
 ## File Structure
 
+- User Interface to Order: User interface classes will ask for input and store it in the order class. 
+Order File Manager would then write the stored content into text file.
 
+![UserInterfaceToDiagram](https://imgur.com/a/7LkDrNR)
+
+- Sandwiches, Drinks and Chips are saved in Items class, as they are extended towards Items with Inheritance. Signature sandwich is extend to Sandwich. 
+Topping is not extended, as topping is not a sandwich, rather sandwich has toppings 
+
+![ItemsInItemsClass](https://imgur.com/a/LKRTfEY)
+
+- Order will collect the Items as list, which would be the main data to write in the Receipt with File Manager. 
+
+![ItemsCollectedInOrders](https://imgur.com/a/ttDaWQn)
 
 ---
 
 ## Application Demo
 
-### Home Screen
+-Some Demos:
 
+### User Interface
 
-### Ledger Menu
-- **A) All**: Display all entries.
-- **D) Deposits**: Show only deposits.
-- **P) Payments**: Show only payments.
-- **R) Reports**: Access predefined reports or custom search.
-- **H) Home**: Return to the home page.
+- Home Screen
 
-### Reports Menu
-- **1) Month To Date**
-- **2) Previous Month**
-- **3) Year To Date**
-- **4) Previous Year**
-- **5) Search by Vendor**
-- **0) Back**
+![HomeScreen](https://raw.githubusercontent.com/NikeshSitaula1/DELI-cious/refs/heads/main/images/1.%20homescreen.png)
 
-Transactions are saved to and read from [transactions.csv](https://github.com/NikeshSitaula1/AccountingLedgerApplication/blob/main/transactions.csv)
+- Order Screen
+
+![OrderScreen](https://raw.githubusercontent.com/NikeshSitaula1/DELI-cious/refs/heads/main/images/2.%20orderscreen.png)
+
+### Menus
+
+- Sandwich Options:
+
+![SandwichOptions](https://raw.githubusercontent.com/NikeshSitaula1/DELI-cious/refs/heads/main/images/4.%20sandwich%20options.png)
+
+- Drink Options
+
+![DrinkOptions](https://raw.githubusercontent.com/NikeshSitaula1/DELI-cious/refs/heads/main/images/10.%20drink%20screen.png)
+
+- Chips Options
+
+![ChipsOptions](https://raw.githubusercontent.com/NikeshSitaula1/DELI-cious/refs/heads/main/images/11.%20chips%20screen.png)
+
+### Receipts
+
+![Receipts](https://raw.githubusercontent.com/NikeshSitaula1/DELI-cious/refs/heads/main/images/14.%20receipt.png)
 
 ---
-
-
 
 ## Getting Started
 
@@ -66,22 +86,6 @@ Transactions are saved to and read from [transactions.csv](https://github.com/Ni
 
 ---
 
-## Screenshots
-
-### Home Screen
-Screenshot of Home Screen.
-Can use either numbers or the Letters on the [ ] to choose an option.
-![HomeScreen](https://i.imgur.com/vvxyLvJ.png)
-
-### Ledger Screen
-Screenshot of Ledger Screen and the number 3
-that has been entered on the home screen to open the ledger screen
-![LedgerScreen](https://i.imgur.com/DdKtMj0.png)
-
-### Report Screen
-Screenshot of Report Screen and the number 4 that has been entered
-on the ledger screen to open the report screen
-![ReportScreen](https://i.imgur.com/zkOztXU.png)
 
 
 ---
