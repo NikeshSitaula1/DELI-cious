@@ -132,10 +132,15 @@ public class Toppings {
 
     @Override
     public String toString() {
-        String formattedCost = String.format("%.2f", calculateToppingCost("4"));
-        String toppingDescription = "- " + toppingName + " ($" + formattedCost + ")";
+        String toppingDescription = "- " + toppingName;
 
-        //Append "(Extra)" if this topping is extra
+        // Only append the price for premium toppings (meat and cheese)
+        if (toppingIsPremium) {
+            String formattedCost = String.format("%.2f", calculateToppingCost("4"));
+            toppingDescription += " ($" + formattedCost + ")";
+        }
+
+        // Append "(Extra)" if this topping is extra
         if (toppingIsExtra) {
             toppingDescription += " (Extra)";
         }
