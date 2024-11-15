@@ -132,12 +132,14 @@ public class Toppings {
     //TO-STRING
     @Override
     public String toString() {
-        String toppingDescription = "- " + toppingName + " ($" + calculateToppingCost("4") + ")";
-        //CONDITION FOR EXTRA
+        // Format the topping cost to two decimal places
+        String formattedCost = String.format("%.2f", calculateToppingCost("4"));
+        String toppingDescription = "- " + toppingName + " ($" + formattedCost + ")";
+
+        // Append "(Extra)" if this topping is extra
         if (toppingIsExtra) {
             toppingDescription += " (Extra)";
         }
         return toppingDescription;
     }
-
 }

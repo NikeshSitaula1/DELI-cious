@@ -1,0 +1,30 @@
+Receipt:
+Date: 2024/11/14 20:30:33
+-----------------------------------
+Sandwich: Custom Sandwich
+  Size: 12
+  Bread: Rye
+  Toasted: Yes
+  Toppings:
+    - Swiss ($1.05) (Extra)
+    - Tomatoes ($0.00)
+    - Onions ($0.00)
+    - Thousand Islands ($0.00)
+    - Vinaigrette ($0.00)
+  Total: $11.65
+Sandwich: Philly Cheese Steak
+  Size: 8
+  Bread: white bread
+  Toasted: yes
+  Toppings:
+    - Steak ($1.00)
+    - American Cheese ($0.75)
+    - Peppers ($0.00)
+    - Mayo ($0.00)
+  Total: $10.50
+Drink: Coke (Large) - $3.00
+Drink: Sprite (Large) - $3.00
+Chips: Doritos Cool Ranch - $1.50
+-----------------------------------
+Total: $29.65
+-----------------------------------
