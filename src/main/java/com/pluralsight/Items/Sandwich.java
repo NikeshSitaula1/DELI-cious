@@ -1,12 +1,13 @@
 package com.pluralsight.Items;
 
+import com.pluralsight.Checkout.CalculatePrice;
 import com.pluralsight.Sandwich.Toppings;
 import com.pluralsight.Checkout.Items;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sandwich extends Items {
+public class Sandwich extends Items implements CalculatePrice {
 
     private String sandwichBread;
     private String sandwichSize;

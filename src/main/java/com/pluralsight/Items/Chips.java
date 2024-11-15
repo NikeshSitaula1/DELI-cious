@@ -1,11 +1,12 @@
 package com.pluralsight.Items;
 
+import com.pluralsight.Checkout.CalculatePrice;
 import com.pluralsight.Checkout.Items;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Chips extends Items {
+public class Chips extends Items implements CalculatePrice {
 
     private String chipsType;
 

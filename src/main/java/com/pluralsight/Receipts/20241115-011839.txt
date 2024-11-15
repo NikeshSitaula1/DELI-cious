@@ -1,0 +1,19 @@
+Receipt:
+Date: 2024/11/15 01:18:39
+-----------------------------------
+Sandwich: Custom Sandwich
+  Size: 4
+  Bread: White Bread
+  Toasted: Yes
+  Toppings:
+    - Steak ($1.50) (Extra)
+    - American cheese ($1.05) (Extra)
+    - Tomatoes
+    - Ranch
+    - Thousand Islands
+  Total: $8.05
+Drink: Coke (Medium) - $2.50
+Chips: Doritos Cool Ranch - $1.50
+-----------------------------------
+Total: $12.05
+-----------------------------------

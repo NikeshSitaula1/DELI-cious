@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Orders {
+public class Orders implements CalculatePrice {
 
     private List<Items> itemList = new ArrayList<>();
 
@@ -24,7 +24,7 @@ public class Orders {
     }
 
     //TOTAL CALCULATION
-    public double calculateTotalPrice() {
+    public double calculatePrice() {
         return itemList.stream()
                 .mapToDouble(Items::calculatePrice) //Map each item to its price
                 .sum(); //Sum up all the prices
@@ -75,7 +75,7 @@ public class Orders {
 
         //adds total price
         receipt.append("-----------------------------------\n")
-                .append("Total: $").append(String.format("%.2f", calculateTotalPrice()))
+                .append("Total: $").append(String.format("%.2f", calculatePrice()))
                 .append("\n-----------------------------------");
 
         return receipt.toString();
