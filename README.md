@@ -94,10 +94,11 @@ Topping is not extended, as topping is not a sandwich, rather sandwich has toppi
 #### System.out.printf("   %d - %s%n", i + 1, breadOptions.get(i));
 #### }
 
-- A simple but a very effective code to me as I use this code a lot in my capstone. I used List breadOptions to print each items. 
-This code loop goes through each index of the breadOptions list, starting from i = 0 and continuing as long as i is less 
-than the size of the list (breadOptions.size()). i++: After each iteration, i increments by 1, moving to the next item in the 
-list. It then prints the option i + 1, so it does not start from 0, and gets the current index of i from the breadOptions list.
+- A simple but a very effective code to me as I use this code a lot in my capstone. I used List, in this example, breadOptions 
+which to print each item. This code loop goes through each index of the breadOptions list, starting from i = 0 and continuing
+as long as variable i is less than the size of the list (breadOptions.size()). i++: After each iteration, i increments by 1, moving to 
+the next item in the list. It then prints the option i + 1, so it does not start from 0, and gets the current index of i 
+from the breadOptions list.
 
 ---
 
